@@ -474,27 +474,27 @@ td:first-child{color:#e0e0e0;font-weight:500}
     <div class="card red-border" style="cursor:pointer">
       <h4><span class="red">UC 1</span> — Ransomware Kill Chain</h4>
       <p>Phishing → PowerShell → Lateral Movement → C2 → Containment in minutes</p>
-      <p class="tiny" style="margin-top:6px">35 tool calls · 7 vendors · Log360 55%</p>
+      <p class="tiny" style="margin-top:6px">Cross-vendor orchestration · 7 vendors</p>
     </div>
     <div class="card yellow-border">
       <h4><span class="yellow">UC 2</span> — Insider Threat Assessment</h4>
       <p>Departing engineer. 69 GB staged. 90-day behavioral dossier in one conversation.</p>
-      <p class="tiny" style="margin-top:6px">30 tool calls · 5 vendors · Log360 61%</p>
+      <p class="tiny" style="margin-top:6px">Cross-vendor orchestration · 5 vendors</p>
     </div>
     <div class="card" style="border-color:#6cb6ff44">
       <h4><span class="blue">UC 3</span> — Credential Stuffing Campaign</h4>
       <p>2,400 attempts. Rotating proxies. 14 compromised. Dark web root cause.</p>
-      <p class="tiny" style="margin-top:6px">38 tool calls · 5 vendors · Log360 62%</p>
+      <p class="tiny" style="margin-top:6px">Cross-vendor orchestration · 5 vendors</p>
     </div>
     <div class="card purple-border">
       <h4><span class="purple">UC 4</span> — Cloud Service Account Compromise</h4>
       <p>Poisoned Python package → AWS credential theft → 18 GB PII exfiltrated</p>
-      <p class="tiny" style="margin-top:6px">36 tool calls · 6 vendors · Log360 56%</p>
+      <p class="tiny" style="margin-top:6px">Cross-vendor orchestration · 6 vendors</p>
     </div>
     <div class="card green-border">
       <h4><span class="green">UC 5</span> — Quarterly Board Briefing</h4>
       <p>Automated cross-vendor posture audit. Hidden blind spots revealed.</p>
-      <p class="tiny" style="margin-top:6px">25 tool calls · 6 vendors · Log360 61%</p>
+      <p class="tiny" style="margin-top:6px">Cross-vendor orchestration · 6 vendors</p>
     </div>
   </div>
 </div>
@@ -508,9 +508,9 @@ td:first-child{color:#e0e0e0;font-weight:500}
 <div class="slide section-slide" data-section="UC1: Ransomware">
   <span class="uc-badge uc1">USE CASE 1</span>
   <h1 class="center"><span class="white">From Phishing Email to Full Containment</span><br><span class="red">In One Conversation</span></h1>
-  <p class="value-line">35 tool calls · 7 vendors · Complete kill chain traced in under 5 minutes</p>
+  <p class="value-line">Cross-vendor orchestration · Complete kill chain traced in one conversation</p>
   <div class="tags" style="margin-top:18px;justify-content:center">
-    <span class="tag log360">LOG360 55%</span>
+    <span class="tag log360">LOG360 CLOUD</span>
     <span class="tag falcon">CROWDSTRIKE</span>
     <span class="tag okta">OKTA</span>
     <span class="tag m365">M365 DEFENDER</span>
@@ -546,16 +546,12 @@ td:first-child{color:#e0e0e0;font-weight:500}
   <div class="flow">
     <div class="flow-node log360">🔍 Log360 Cloud<br><span style="font-size:10px">NLQ · UEBA · IWB · Alerts</span></div>
     <span class="flow-arrow">↔</span>
-    <div class="flow-node mcp">🤖 MCP Copilot<br><span style="font-size:10px">Orchestrates 35 calls</span></div>
+    <div class="flow-node mcp">🤖 MCP Copilot<br><span style="font-size:10px">Cross-vendor orchestration</span></div>
     <span class="flow-arrow">↔</span>
     <div class="flow-node vendor">🛡️ CrowdStrike · Okta<br><span style="font-size:10px">M365 · PaloAlto · SNOW</span></div>
     <span class="flow-arrow">→</span>
     <div class="flow-node result">✅ Contained<br><span style="font-size:10px">3 hosts isolated</span></div>
   </div>
-</div>
-
-<!-- UC1 — WHAT HAPPENED -->
-<div class="slide left-align" data-section="UC1: Ransomware">
   <h3>What Happened?</h3>
   <div class="timeline">
     <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>T+0 min:</strong> Maria Rossi (Finance) opens phishing email from <code>billing@acme-inv0ice.com</code> with macro-enabled Word attachment<div class="tl-time">Typosquatted domain registered 48 hours prior</div></div></div>
@@ -566,6 +562,19 @@ td:first-child{color:#e0e0e0;font-weight:500}
     <div class="tl-item"><div class="tl-dot blue"></div><div class="tl-content"><strong>Blast radius:</strong> Same phishing campaign sent to <strong>94 other employees</strong> in Finance & Procurement</div></div>
   </div>
 </div>
+
+<!-- UC1 — WHAT HAPPENED -->
+<!-- <div class="slide left-align" data-section="UC1: Ransomware">
+  <h3>What Happened?</h3>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>T+0 min:</strong> Maria Rossi (Finance) opens phishing email from <code>billing@acme-inv0ice.com</code> with macro-enabled Word attachment<div class="tl-time">Typosquatted domain registered 48 hours prior</div></div></div>
+    <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>T+1 min:</strong> Hidden macro launches PowerShell → downloads ransomware payload from newly registered domain<div class="tl-time">Outlook → WINWORD → powershell.exe → ransomware binary</div></div></div>
+    <div class="tl-item"><div class="tl-dot yellow"></div><div class="tl-content"><strong>T+5 min:</strong> Ransomware connects to C2 server, beacons every 60 seconds over HTTPS<div class="tl-time">C2 infrastructure linked to LockBit 3.0</div></div></div>
+    <div class="tl-item"><div class="tl-dot yellow"></div><div class="tl-content"><strong>T+15 min:</strong> Lateral movement — RDP to File Server 1, pass-the-hash to File Server 2, 12 failed attempts on Domain Controller</div></div>
+    <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>T+30 min:</strong> 1.8 GB exfiltrated outbound before encryption begins — classic "steal first, encrypt second"</div></div>
+    <div class="tl-item"><div class="tl-dot blue"></div><div class="tl-content"><strong>Blast radius:</strong> Same phishing campaign sent to <strong>94 other employees</strong> in Finance & Procurement</div></div>
+  </div>
+</div> -->
 
 <!-- UC1 — WITHOUT MCP -->
 <div class="slide left-align" data-section="UC1: Ransomware">
@@ -604,85 +613,58 @@ td:first-child{color:#e0e0e0;font-weight:500}
   </div>
 </div>
 
-<!-- UC1 — HOW MCP SOLVES THIS -->
+<!-- UC1 — HOW MCP SOLVES THIS + ENGINEERING & PRODUCT (MERGED) -->
 <div class="slide left-align" data-section="UC1: Ransomware">
   <h3>How Log360Cloud MCP Solves This</h3>
   <div class="card-grid card-grid-3">
     <div class="card highlight">
       <h4>🔗 Cross-Vendor Orchestration</h4>
       <ul>
-        <li>35 API calls across 7 vendors</li>
-        <li>Log360 handles 21 calls (55%)</li>
+        <li>Log360 serves as the primary investigation hub — alerts, search, UEBA, and threat intel in one MCP server</li>
         <li>EDR + SIEM cross-confirmation automatic</li>
-        <li>Identity resolution feeds every query</li>
+        <li>Identity resolution via Okta feeds every query</li>
+        <li>Standardized MCP protocol — adding new vendors requires only one adapter</li>
       </ul>
     </div>
     <div class="card highlight">
       <h4>🧠 Automatic Enrichment</h4>
       <ul>
-        <li>C2 IP → flagged LockBit infrastructure</li>
+        <li>C2 IP → flagged via threat intelligence (IWB module)</li>
         <li>Domain → typosquat, registered 48h ago</li>
-        <li>Hash → VirusTotal confirms LockBit 3.0</li>
-        <li>User risk score: 91 CRITICAL</li>
+        <li>Hash enrichment via VirusTotal integration</li>
+        <li>UEBA risk score elevated to CRITICAL</li>
       </ul>
     </div>
     <div class="card highlight">
-      <h4>🎯 Gap Discovery</h4>
+      <h4>🎯 Gap Discovery & Prevention</h4>
       <ul>
-        <li>No pass-the-hash detection rule</li>
-        <li>No RDP-to-fileserver rule</li>
+        <li>No pass-the-hash detection rule identified</li>
+        <li>No RDP-to-fileserver rule in place</li>
         <li>Lateral movement profile covers only RDP</li>
-        <li>Turns every incident into improvement</li>
+        <li>Every incident becomes a detection improvement opportunity</li>
       </ul>
     </div>
   </div>
-  <div class="glow-box" style="margin-top:16px">
-    <p style="font-size:14px;color:#e0e0e0">💡 <strong>Key insight:</strong> Log360 NLQ traced lateral movement that CrowdStrike couldn't see (network-level). M365 Defender found the email that Log360 couldn't see. <strong class="accent">Together via MCP — complete kill chain.</strong></p>
-  </div>
-</div>
-
-<!-- UC1 — SOC IMPACT -->
-<!-- <div class="slide left-align" data-section="UC1: Ransomware">
-  <h3>SOC Impact — Measurable Improvements</h3>
-  <div class="metrics">
-    <div class="metric"><div class="num green">97%</div><div class="label">MTTR Reduction</div></div>
-    <div class="metric"><div class="num blue">35</div><div class="label">Automated Calls</div></div>
-    <div class="metric"><div class="num yellow">7</div><div class="label">Vendors Unified</div></div>
-    <div class="metric"><div class="num purple">2</div><div class="label">Gaps Found</div></div>
-    <div class="metric"><div class="num red">94</div><div class="label">Emails Quarantined</div></div>
-  </div>
-  <table>
-    <tr><th>Metric</th><th>Without MCP</th><th>With MCP</th><th>Improvement</th></tr>
-    <tr><td>Full kill chain investigation</td><td class="red">2–4 hours</td><td class="green">3–5 minutes</td><td><strong class="accent">~97% faster</strong></td></tr>
-    <tr><td>Lateral movement discovery</td><td>Manual query building</td><td>Automatic NLQ trace</td><td><strong class="accent">Real-time</strong></td></tr>
-    <tr><td>Phishing campaign scope</td><td>Separate email console lookup</td><td>Auto-discovered via MCP</td><td><strong class="accent">94 copies found</strong></td></tr>
-    <tr><td>Identity correlation</td><td>Manual cross-referencing</td><td>Okta auto-resolution</td><td><strong class="accent">Instant</strong></td></tr>
-    <tr><td>Detection gaps</td><td>Found post-mortem (weeks)</td><td>Found during investigation</td><td><strong class="accent">Same session</strong></td></tr>
-    <tr><td>Containment coordination</td><td>5 separate consoles</td><td>Single orchestrated action</td><td><strong class="accent">5→1 workflows</strong></td></tr>
-  </table>
-</div> -->
-
-<!-- UC1 — ENGINEERING + PRODUCT -->
-<div class="slide left-align" data-section="UC1: Ransomware">
-  <h3>Engineering & Product Perspective</h3>
-  <div class="split">
+  <div class="split" style="margin-top:16px">
     <div class="col">
       <h4>🏗️ Engineering Value</h4>
       <ul class="bullets compact">
         <li>Standardized MCP protocol eliminates custom API integrations per vendor</li>
-        <li>Log360 MCP server handles 21 of 35 calls — <strong>single codebase covers majority</strong></li>
-        <li>Adding new vendors = one MCP adapter, not rewriting orchestration</li>
+        <li>Log360 MCP server exposes alerts, search, UEBA, threat intel, and detection modules — <strong>single codebase covers the majority of investigation needs</strong></li>
         <li>NLQ interface means zero hard-coded query templates</li>
       </ul>
     </div>
     <div class="col">
       <h4>📈 Product & Business Value</h4>
       <ul class="bullets compact">
-        <li><strong class="blue">Stickiness:</strong> Log360 becomes indispensable when it's the AI's primary tool</li>
+        <li><strong class="blue">Stickiness:</strong> Log360 becomes indispensable as the AI's primary investigation hub</li>
         <li><strong class="yellow">Upsell path:</strong> MCP drives adoption of NLQ, UEBA, IWB, and Detection modules</li>
         <li><strong class="purple">Enterprise readiness:</strong> Cross-vendor story wins security-mature accounts</li>
       </ul>
     </div>
+  </div>
+  <div class="glow-box" style="margin-top:14px">
+    <p style="font-size:14px;color:#e0e0e0">💡 <strong>Key insight:</strong> Log360 NLQ traced lateral movement that CrowdStrike couldn't see (network-level). M365 Defender found the email that Log360 couldn't see. <strong class="accent">Together via MCP — complete kill chain.</strong></p>
   </div>
 </div>
 
@@ -732,7 +714,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge crowdstrike">CrowdStrike</span> isolate_endpoint(3 hosts) <span class="tool-type rest-api">REST API</span><div class="tool-detail"><div class="tool-req">→ Network-isolate compromised endpoints<br><em class="tiny">ⓘ falcon-mcp is read-only. Endpoint isolation requires custom tool via CrowdStrike Real Time Response API.</em></div><div class="tool-res">✓ WIN-FIN-2201, SRV-FILE-01, SRV-FILE-02 isolated</div></div></div>
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge okta">Okta</span> revoke + reset <span class="tool-type rest-api">REST API</span> | <span class="tool-badge palo">PAN</span> block IPs <span class="tool-type rest-api">REST API</span> | <span class="tool-badge m365">M365</span> quarantine 94 emails <span class="tool-type rest-api">REST API</span><div class="tool-detail"><div class="tool-req">→ Cross-vendor containment in parallel<br><em class="tiny">ⓘ okta-mcp-server offers deactivate_user [Official] but not session revocation. PAN Cortex MCP is read-only. M365 has no security MCP server. All containment actions require custom REST API tools.</em></div><div class="tool-res">✓ Sessions revoked, C2 blocked, domain blocked, 94 phishing emails quarantined, ServiceNow P1 created</div></div></div>
       </div>
-      <div class="chat-summary">✅ Full ransomware kill chain traced across 7 vendors. 35 tool calls. 3 hosts isolated. 94 emails quarantined. 2 detection gaps found. Time: ~5 minutes.</div>
+      <div class="chat-summary">✅ Full ransomware kill chain traced across 7 vendors. 3 hosts isolated. 94 emails quarantined. 2 detection gaps found. Time: ~5 minutes.</div>
     </div></div>
   </div>
   <p class="tiny center" style="margin-top:8px">Click any tool call to expand request/response details</p>
@@ -746,9 +728,9 @@ td:first-child{color:#e0e0e0;font-weight:500}
 <div class="slide section-slide" data-section="UC2: Insider Threat">
   <span class="uc-badge uc2">USE CASE 2</span>
   <h1 class="center"><span class="white">90-Day Insider Dossier</span><br><span class="yellow">Built in One Conversation</span></h1>
-  <p class="value-line">30 tool calls · 5 vendors · 69 GB of staged data traced across USB, cloud & repositories</p>
+  <p class="value-line">Cross-vendor orchestration · 69 GB of staged data traced across USB, cloud & repositories</p>
   <div class="tags" style="margin-top:18px;justify-content:center">
-    <span class="tag log360">LOG360 61%</span>
+    <span class="tag log360">LOG360 CLOUD</span>
     <span class="tag okta">OKTA</span>
     <span class="tag aws">AWS CLOUDTRAIL</span>
     <span class="tag sn">SERVICENOW</span>
@@ -779,16 +761,12 @@ td:first-child{color:#e0e0e0;font-weight:500}
   <div class="flow">
     <div class="flow-node log360">🔍 Log360 Cloud<br><span style="font-size:10px">UEBA · NLQ · Dark Web · Anomalies</span></div>
     <span class="flow-arrow">↔</span>
-    <div class="flow-node mcp">🤖 MCP Copilot<br><span style="font-size:10px">30 calls orchestrated</span></div>
+    <div class="flow-node mcp">🤖 MCP Copilot<br><span style="font-size:10px">Cross-vendor orchestration</span></div>
     <span class="flow-arrow">↔</span>
     <div class="flow-node vendor">🔐 Okta · GitHub · AWS<br><span style="font-size:10px">Identity + Activity</span></div>
     <span class="flow-arrow">→</span>
     <div class="flow-node result">📋 HR-Legal Case<br><span style="font-size:10px">Confidential dossier</span></div>
   </div>
-</div>
-
-<!-- UC2 — WHAT HAPPENED -->
-<div class="slide left-align" data-section="UC2: Insider Threat">
   <h3>What Happened?</h3>
   <div class="timeline">
     <div class="tl-item"><div class="tl-dot yellow"></div><div class="tl-content"><strong>Day 0 (3 weeks ago):</strong> James Park quietly accepts competitor offer. Behavioral shift begins immediately.<div class="tl-time">Risk score: 15 → will reach 82</div></div></div>
@@ -799,6 +777,19 @@ td:first-child{color:#e0e0e0;font-weight:500}
     <div class="tl-item"><div class="tl-dot blue"></div><div class="tl-content"><strong>Total exposure:</strong> 69+ GB staged across USB, personal cloud, email, and direct downloads. <strong>8 DLP alerts fired — all set to alert-only.</strong></div></div>
   </div>
 </div>
+
+<!-- UC2 — WHAT HAPPENED -->
+<!-- <div class="slide left-align" data-section="UC2: Insider Threat">
+  <h3>What Happened?</h3>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot yellow"></div><div class="tl-content"><strong>Day 0 (3 weeks ago):</strong> James Park quietly accepts competitor offer. Behavioral shift begins immediately.<div class="tl-time">Risk score: 15 → will reach 82</div></div></div>
+    <div class="tl-item"><div class="tl-dot yellow"></div><div class="tl-content"><strong>Days 1–21:</strong> 28 off-hours VPN logins (vs. 2 in prior 10 weeks). Accesses patent repos, HR compensation data, and out-of-scope source code.</div></div>
+    <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>Days 3–21:</strong> New 2TB USB drive connected 11 times — 38 GB written. 14 GitHub repos cloned in 10 days (norm: 2/month).</div></div>
+    <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>Days 3–21:</strong> 23 GB uploaded to personal Google Drive. 8.2 GB sent via WeTransfer. Services never used before from work account.</div></div>
+    <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>Saturday night:</strong> Bulk-downloaded 47 GB from production AWS data lake after hours.</div></div>
+    <div class="tl-item"><div class="tl-dot blue"></div><div class="tl-content"><strong>Total exposure:</strong> 69+ GB staged across USB, personal cloud, email, and direct downloads. <strong>8 DLP alerts fired — all set to alert-only.</strong></div></div>
+  </div>
+</div> -->
 
 <!-- UC2 — WITHOUT MCP -->
 <div class="slide left-align" data-section="UC2: Insider Threat">
@@ -837,75 +828,44 @@ td:first-child{color:#e0e0e0;font-weight:500}
   </div>
 </div>
 
-<!-- UC2 — HOW MCP SOLVES THIS -->
+<!-- UC2 — HOW MCP SOLVES THIS + ENGINEERING & PRODUCT (MERGED) -->
 <div class="slide left-align" data-section="UC2: Insider Threat">
   <h3>How Log360Cloud MCP Solves This</h3>
   <div class="card-grid card-grid-3">
     <div class="card highlight">
       <h4>📊 Behavioral Baseline</h4>
       <ul>
-        <li>UEBA pinpoints exact inflection day</li>
-        <li>14 anomalies in 3 weeks vs. 0 prior</li>
+        <li>UEBA pinpoints exact inflection day via anomaly detection</li>
         <li>Off-hours logins: 2 → 28 (14× increase)</li>
         <li>File access: 12 → 847 (70× spike)</li>
+        <li>Identity resolution pattern reused from UC1 — zero additional code</li>
       </ul>
     </div>
     <div class="card highlight">
       <h4>🔗 Cross-Platform Tracing</h4>
       <ul>
-        <li>Windows + AWS + GitHub + Cloud apps</li>
-        <li>Single identity resolved to all platforms</li>
-        <li>USB, cloud upload, repo clone — all unified</li>
-        <li>69+ GB total data movement quantified</li>
+        <li>Windows + AWS + GitHub + Cloud apps unified</li>
+        <li>Single identity resolved to all platforms via Okta</li>
+        <li>USB, cloud upload, repo clone — all unified in one view</li>
+        <li>NLQ generates targeted queries dynamically — no templates to maintain</li>
       </ul>
     </div>
     <div class="card highlight">
-      <h4>⚖️ Intent Confirmation</h4>
+      <h4>⚖️ Intent Confirmation & Response</h4>
       <ul>
-        <li>Dark web check: clean → not compromised</li>
+        <li>Dark web check (IWB): clean → not compromised externally</li>
         <li>Confirms volitional insider activity</li>
         <li>DLP gap found: alerts fired but no blocks</li>
         <li>Actionable evidence for HR-Legal case</li>
       </ul>
     </div>
   </div>
-  <div class="glow-box" style="margin-top:14px">
-    <p style="font-size:14px;color:#e0e0e0">💡 <strong>Key insight:</strong> The security tools <em>were</em> detecting the activity — 8 alerts fired. But policy was alert-only. <strong class="accent">MCP found the systemic gap that let 69 GB walk out the door.</strong></p>
-  </div>
-</div>
-
-<!-- UC2 — SOC IMPACT -->
-<!-- <div class="slide left-align" data-section="UC2: Insider Threat">
-  <h3>SOC Impact — Measurable Improvements</h3>
-  <div class="metrics">
-    <div class="metric"><div class="num green">95%</div><div class="label">Time Saved</div></div>
-    <div class="metric"><div class="num blue">23</div><div class="label">Log360 Calls</div></div>
-    <div class="metric"><div class="num yellow">69 GB</div><div class="label">Data Traced</div></div>
-    <div class="metric"><div class="num red">14</div><div class="label">Anomalies Found</div></div>
-    <div class="metric"><div class="num purple">8</div><div class="label">Alert Gaps Found</div></div>
-  </div>
-  <table>
-    <tr><th>Metric</th><th>Without MCP</th><th>With MCP</th><th>Improvement</th></tr>
-    <tr><td>Full 90-day insider assessment</td><td class="red">1–2 days</td><td class="green">8–12 minutes</td><td><strong class="accent">~95% faster</strong></td></tr>
-    <tr><td>Cross-platform identity mapping</td><td>Manual (4 consoles)</td><td>Automatic (Okta bridge)</td><td><strong class="accent">Instant</strong></td></tr>
-    <tr><td>Data movement quantification</td><td>Partial (USB OR cloud)</td><td>Complete (all channels)</td><td><strong class="accent">69 GB total</strong></td></tr>
-    <tr><td>Behavioral inflection detection</td><td>Requires custom reports</td><td>UEBA auto-detects</td><td><strong class="accent">Exact day pinpointed</strong></td></tr>
-    <tr><td>Dark web root cause check</td><td>Separate tool/subscription</td><td>Built into Log360 IWB</td><td><strong class="accent">Integrated</strong></td></tr>
-    <tr><td>DLP policy gap discovery</td><td>Found post-incident (weeks)</td><td>Found during investigation</td><td><strong class="accent">Same session</strong></td></tr>
-  </table>
-</div> -->
-
-<!-- UC2 — ENGINEERING + PRODUCT -->
-<div class="slide left-align" data-section="UC2: Insider Threat">
-  <h3>Engineering & Product Perspective</h3>
-  <div class="split">
+  <div class="split" style="margin-top:16px">
     <div class="col">
       <h4>🏗️ Engineering Value</h4>
       <ul class="bullets compact">
-        <li>Identity resolution pattern from UC1 reused identically — <strong>zero new code</strong></li>
-        <li>NLQ generates 4 distinct queries dynamically — no templates to maintain</li>
-        <li>UEBA + Anomaly + NLQ + IWB + Dark Web — 5 modules composed seamlessly</li>
-        <li>Time-windowed queries (90-day) handled natively by Log360 NLQ</li>
+        <li>UEBA + Anomaly + NLQ + IWB + Dark Web — 5 modules composed seamlessly via MCP</li>
+        <li>Time-windowed queries (90-day) handled natively by Log360 search API</li>
         <li>ServiceNow adapter creates confidential cases with structured evidence</li>
       </ul>
     </div>
@@ -917,6 +877,9 @@ td:first-child{color:#e0e0e0;font-weight:500}
         <li><strong class="purple">Complete evidence trail:</strong> All data channels traced and documented in one workflow</li>
       </ul>
     </div>
+  </div>
+  <div class="glow-box" style="margin-top:14px">
+    <p style="font-size:14px;color:#e0e0e0">💡 <strong>Key insight:</strong> The security tools <em>were</em> detecting the activity — 8 alerts fired. But policy was alert-only. <strong class="accent">MCP found the systemic gap that let 69 GB walk out the door.</strong></p>
   </div>
 </div>
 
@@ -958,7 +921,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> get_alerts + get_detection_rules() <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Audit existing detection coverage</div><div class="tool-res">⚠️ 8 DLP alerts fired — all set to ALERT-ONLY (no blocks). GAP: No rule for "out-of-scope repo access" or "off-hours bulk download spike"</div></div></div>
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge sn">ServiceNow</span> create_confidential_case(type: "Insider Threat") <span class="tool-type custom">Custom</span><div class="tool-detail"><div class="tool-req">→ Create HR-Legal restricted case with all evidence<br><em class="tiny">ⓘ No official ServiceNow MCP server exists. Custom MCP tool needed via ServiceNow Table API / Case Management API.</em></div><div class="tool-res">✓ Confidential case created — CISO + HR Director notified</div></div></div>
       </div>
-      <div class="chat-summary">✅ 90-day insider dossier complete. 69+ GB staged across USB, cloud, and repos. Risk score spike pinpointed. Dark web clean — volitional. 30 tool calls, 5 vendors. Time: ~10 minutes.</div>
+      <div class="chat-summary">✅ 90-day insider dossier complete. 69+ GB staged across USB, cloud, and repos. Risk score spike pinpointed. Dark web clean — volitional. 5 vendors orchestrated. Time: ~10 minutes.</div>
     </div></div>
   </div>
   <p class="tiny center" style="margin-top:8px">Click any tool call to expand request/response details</p>
@@ -972,9 +935,9 @@ td:first-child{color:#e0e0e0;font-weight:500}
 <div class="slide section-slide" data-section="UC3: Credential Stuffing">
   <span class="uc-badge uc3">USE CASE 3</span>
   <h1 class="center"><span class="white">2,400 Attempts. 14 Compromised.</span><br><span class="blue">Root Cause: The Dark Web.</span></h1>
-  <p class="value-line">38 tool calls · 5 vendors · Dark web intelligence identifies password reuse as root cause</p>
+  <p class="value-line">Cross-vendor orchestration · Dark web intelligence identifies password reuse as root cause</p>
   <div class="tags" style="margin-top:18px;justify-content:center">
-    <span class="tag log360">LOG360 62%</span>
+    <span class="tag log360">LOG360 CLOUD</span>
     <span class="tag elastic">ELASTIC XDR</span>
     <span class="tag okta">OKTA</span>
     <span class="tag palo">PALO ALTO</span>
@@ -1006,16 +969,12 @@ td:first-child{color:#e0e0e0;font-weight:500}
   <div class="flow">
     <div class="flow-node log360">🔍 Log360 Cloud<br><span style="font-size:10px">NLQ · Dark Web · UEBA · IP Intel</span></div>
     <span class="flow-arrow">↔</span>
-    <div class="flow-node mcp">🤖 MCP Copilot<br><span style="font-size:10px">38 calls orchestrated</span></div>
+    <div class="flow-node mcp">🤖 MCP Copilot<br><span style="font-size:10px">Cross-vendor orchestration</span></div>
     <span class="flow-arrow">↔</span>
     <div class="flow-node vendor">🛡️ Elastic · Okta · PAN<br><span style="font-size:10px">Detection + Containment</span></div>
     <span class="flow-arrow">→</span>
     <div class="flow-node result">✅ 14 Contained<br><span style="font-size:10px">MFA enforced for 180</span></div>
   </div>
-</div>
-
-<!-- UC3 — WHAT HAPPENED -->
-<div class="slide left-align" data-section="UC3: Credential Stuffing">
   <h3>What Happened?</h3>
   <div class="timeline">
     <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>T+0:</strong> Attackers compile stolen credentials from LinkedIn dump + third-party vendor breach on dark web<div class="tl-time">Credential list fed into automated stuffing tool</div></div></div>
@@ -1025,6 +984,18 @@ td:first-child{color:#e0e0e0;font-weight:500}
     <div class="tl-item"><div class="tl-dot yellow"></div><div class="tl-content"><strong>Recurring:</strong> Log360 found a similar incident 5 days earlier — this is a persistent campaign, not a one-off</div></div>
   </div>
 </div>
+
+<!-- UC3 — WHAT HAPPENED -->
+<!-- <div class="slide left-align" data-section="UC3: Credential Stuffing">
+  <h3>What Happened?</h3>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>T+0:</strong> Attackers compile stolen credentials from LinkedIn dump + third-party vendor breach on dark web<div class="tl-time">Credential list fed into automated stuffing tool</div></div></div>
+    <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>T+0 → T+10 min:</strong> 2,400 login attempts across 180 accounts from 23 rotating IPs — each IP sends ~10/min to stay <strong>under per-IP brute-force threshold</strong></div></div>
+    <div class="tl-item"><div class="tl-dot yellow"></div><div class="tl-content"><strong>Result:</strong> 14 accounts compromised — employees reused breached passwords<br>• 8 accounts: login only (caught early)<br>• 4 accounts: accessed email + cloud apps<br>• <strong>2 accounts: created mail forwarding rules + accessed payroll data</strong></div></div>
+    <div class="tl-item"><div class="tl-dot blue"></div><div class="tl-content"><strong>Evasion technique:</strong> 23 residential proxy IPs × 10 attempts each = under the 100/min per-IP threshold — <strong>invisible to existing brute-force rules</strong></div></div>
+    <div class="tl-item"><div class="tl-dot yellow"></div><div class="tl-content"><strong>Recurring:</strong> Log360 found a similar incident 5 days earlier — this is a persistent campaign, not a one-off</div></div>
+  </div>
+</div> -->
 
 <!-- UC3 — WITHOUT MCP -->
 <div class="slide left-align" data-section="UC3: Credential Stuffing">
@@ -1063,14 +1034,14 @@ td:first-child{color:#e0e0e0;font-weight:500}
   </div>
 </div>
 
-<!-- UC3 — HOW MCP SOLVES THIS -->
+<!-- UC3 — HOW MCP SOLVES THIS + ENGINEERING & PRODUCT (MERGED) -->
 <div class="slide left-align" data-section="UC3: Credential Stuffing">
   <h3>How Log360Cloud MCP Solves This</h3>
   <div class="card-grid card-grid-3">
     <div class="card highlight">
       <h4>🌑 Dark Web Intelligence</h4>
       <ul>
-        <li>Batch check all 14 compromised accounts</li>
+        <li>Batch check all 14 compromised accounts via IWB module</li>
         <li>11 of 14 found in breach databases</li>
         <li>9 still using same breached password</li>
         <li>Root cause: password reuse — not a system flaw</li>
@@ -1080,58 +1051,28 @@ td:first-child{color:#e0e0e0;font-weight:500}
       <h4>🔄 Distributed Attack Detection</h4>
       <ul>
         <li>Individual IPs stayed under threshold</li>
-        <li>Log360 correlated across all 23 IPs</li>
+        <li>Log360 search API correlated across all 23 IPs</li>
         <li>Found recurring pattern — 5 days ago too</li>
-        <li>New rule recommended: aggregate cross-IP</li>
+        <li>New correlation rule recommended: aggregate cross-IP</li>
       </ul>
     </div>
     <div class="card highlight">
-      <h4>🎯 Impact Tiering</h4>
+      <h4>🎯 Impact Tiering & Response</h4>
       <ul>
         <li>8 login-only → low risk</li>
         <li>4 app access → medium risk</li>
         <li>2 mail forwarding + payroll → critical</li>
-        <li>No on-prem pivot detected ✅</li>
+        <li>Reverse identity resolution (cloud → on-prem) via Okta</li>
       </ul>
     </div>
   </div>
-  <div class="glow-box" style="margin-top:14px">
-    <p style="font-size:14px;color:#e0e0e0">💡 <strong>Key insight:</strong> Without Log360's dark web intelligence, the team would know <em>that</em> accounts were compromised but not <em>why</em> — and wouldn't know <strong class="accent">89 other employees are sitting ducks with the same exposed credentials.</strong></p>
-  </div>
-</div>
-
-<!-- UC3 — SOC IMPACT -->
-<!-- <div class="slide left-align" data-section="UC3: Credential Stuffing">
-  <h3>SOC Impact — Measurable Improvements</h3>
-  <div class="metrics">
-    <div class="metric"><div class="num green">96%</div><div class="label">MTTR Reduction</div></div>
-    <div class="metric"><div class="num blue">28</div><div class="label">Log360 Calls</div></div>
-    <div class="metric"><div class="num yellow">14</div><div class="label">Accounts Contained</div></div>
-    <div class="metric"><div class="num red">89</div><div class="label">At-Risk Users Found</div></div>
-    <div class="metric"><div class="num purple">180</div><div class="label">MFA Enforced</div></div>
-  </div>
-  <table>
-    <tr><th>Metric</th><th>Without MCP</th><th>With MCP</th><th>Improvement</th></tr>
-    <tr><td>Campaign analysis + containment</td><td class="red">3–5 hours</td><td class="green">5–8 minutes</td><td><strong class="accent">~96% faster</strong></td></tr>
-    <tr><td>Dark web root cause analysis</td><td>Not available (separate tool)</td><td>Built-in, batch-checked</td><td><strong class="accent">Integrated</strong></td></tr>
-    <tr><td>Compromised user categorization</td><td>Manual triage per user</td><td>Auto-tiered by impact</td><td><strong class="accent">3 tiers in seconds</strong></td></tr>
-    <tr><td>Detection gap discovery</td><td>Post-mortem review</td><td>Found during investigation</td><td><strong class="accent">Same session</strong></td></tr>
-    <tr><td>Proactive risk identification</td><td>None (reactive only)</td><td>89 additional at-risk users</td><td><strong class="accent">Proactive</strong></td></tr>
-  </table>
-</div> -->
-
-<!-- UC3 — ENGINEERING + PRODUCT -->
-<div class="slide left-align" data-section="UC3: Credential Stuffing">
-  <h3>Engineering & Product Perspective</h3>
-  <div class="split">
+  <div class="split" style="margin-top:16px">
     <div class="col">
       <h4>🏗️ Engineering Value</h4>
       <ul class="bullets compact">
-        <li>Dark web API batching — 14 calls parallelized via MCP</li>
-        <li>IP analysis handles array input — scales to any campaign size</li>
-        <li>Elastic XDR as trigger → Log360 as investigation engine — vendor-agnostic</li>
+        <li>IP analysis via IWB module handles array input — scales to any campaign size</li>
+        <li>Elastic XDR as trigger → Log360 as investigation engine — vendor-agnostic architecture</li>
         <li>NLQ dynamically constructs queries with IP lists — no hard-coded filters</li>
-        <li>Reverse identity resolution (cloud → on-prem) — same Okta adapter</li>
       </ul>
     </div>
     <div class="col">
@@ -1139,9 +1080,12 @@ td:first-child{color:#e0e0e0;font-weight:500}
       <ul class="bullets compact">
         <li><strong class="blue">Risk quantification:</strong> "89 employees at risk" — board-ready metric</li>
         <li><strong class="purple">XDR coexistence:</strong> Works alongside Elastic/CrowdStrike, not against them</li>
-        <li><strong class="yellow">Root cause analysis:</strong> Dark web insights (via IWB addon) identify <em>why</em> accounts were compromised, not just that they were</li>
+        <li><strong class="yellow">Root cause analysis:</strong> Dark web insights (via IWB addon) identify <em>why</em> accounts were compromised</li>
       </ul>
     </div>
+  </div>
+  <div class="glow-box" style="margin-top:14px">
+    <p style="font-size:14px;color:#e0e0e0">💡 <strong>Key insight:</strong> Without Log360's dark web intelligence, the team would know <em>that</em> accounts were compromised but not <em>why</em> — and wouldn't know <strong class="accent">89 other employees are sitting ducks with the same exposed credentials.</strong></p>
   </div>
 </div>
 
@@ -1179,7 +1123,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> get_detection_rules() <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Check why existing rules missed this</div><div class="tool-res">⚠️ GAP: "Distributed credential stuffing" rule missing — current rule threshold 100/min per IP, attack used 10/IP × 23 IPs</div></div></div>
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge okta">Okta</span> revoke_sessions + force_mfa(180 users) <span class="tool-type rest-api">REST API</span> | <span class="tool-badge palo">PAN</span> block_ips(23) <span class="tool-type rest-api">REST API</span><div class="tool-detail"><div class="tool-req">→ Contain compromised accounts and block attacker infrastructure<br><em class="tiny">ⓘ okta-mcp-server is read-only (no session revocation or MFA enforcement). PAN Cortex MCP has no block_ips tool (read-only built-in). Both require custom REST API tools.</em></div><div class="tool-res">✓ 14 sessions revoked, passwords reset. MFA enforced for all 180 targeted users. 23 IPs blocked.</div></div></div>
       </div>
-      <div class="chat-summary">✅ Campaign contained. 14 accounts compromised (2 critical). Root cause: dark web password reuse. 89 additional at-risk users identified. 38 tool calls, 5 vendors. Time: ~7 minutes.</div>
+      <div class="chat-summary">✅ Campaign contained. 14 accounts compromised (2 critical). Root cause: dark web password reuse. 89 additional at-risk users identified. 5 vendors orchestrated. Time: ~7 minutes.</div>
     </div></div>
   </div>
   <p class="tiny center" style="margin-top:8px">Click any tool call to expand request/response details</p>
@@ -1193,9 +1137,9 @@ td:first-child{color:#e0e0e0;font-weight:500}
 <div class="slide section-slide" data-section="UC4: Cloud Compromise">
   <span class="uc-badge uc4">USE CASE 4</span>
   <h1 class="center"><span class="white">From Poisoned Package to</span><br><span class="purple">18 GB of Customer PII Gone</span></h1>
-  <p class="value-line">36 tool calls · 6 vendors · Endpoint → Cloud → Data Breach traced in a single conversation</p>
+  <p class="value-line">Cross-vendor orchestration · Endpoint → Cloud → Data Breach traced in a single conversation</p>
   <div class="tags" style="margin-top:18px;justify-content:center">
-    <span class="tag log360">LOG360 56%</span>
+    <span class="tag log360">LOG360 CLOUD</span>
     <span class="tag sentinel">SENTINELONE</span>
     <span class="tag okta">OKTA</span>
     <span class="tag aws">AWS IAM</span>
@@ -1228,16 +1172,12 @@ td:first-child{color:#e0e0e0;font-weight:500}
   <div class="flow">
     <div class="flow-node log360">🔍 Log360 Cloud<br><span style="font-size:10px">CloudTrail · Process · TI · UEBA</span></div>
     <span class="flow-arrow">↔</span>
-    <div class="flow-node mcp">🤖 MCP Copilot<br><span style="font-size:10px">36 calls orchestrated</span></div>
+    <div class="flow-node mcp">🤖 MCP Copilot<br><span style="font-size:10px">Cross-vendor orchestration</span></div>
     <span class="flow-arrow">↔</span>
     <div class="flow-node vendor">🛡️ S1 · Okta · AWS · PAN<br><span style="font-size:10px">Endpoint + Cloud + Net</span></div>
     <span class="flow-arrow">→</span>
     <div class="flow-node result">🚨 P1 Incident<br><span style="font-size:10px">Legal breach review</span></div>
   </div>
-</div>
-
-<!-- UC4 — WHAT HAPPENED -->
-<div class="slide left-align" data-section="UC4: Cloud Compromise">
   <h3>What Happened?</h3>
   <div class="timeline">
     <div class="tl-item"><div class="tl-dot purple"></div><div class="tl-content"><strong>T+0:</strong> Developer Ajay installs trojanized Python package from a look-alike domain (registered 1 week ago)<div class="tl-time">VS Code → python.exe → malicious_script.py</div></div></div>
@@ -1248,6 +1188,19 @@ td:first-child{color:#e0e0e0;font-weight:500}
     <div class="tl-item"><div class="tl-dot blue"></div><div class="tl-content"><strong>Root cause:</strong> Plaintext AWS credentials on dev workstation + unvetted package install. <strong>Under 2 hours from install to breach.</strong></div></div>
   </div>
 </div>
+
+<!-- UC4 — WHAT HAPPENED -->
+<!-- <div class="slide left-align" data-section="UC4: Cloud Compromise">
+  <h3>What Happened?</h3>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot purple"></div><div class="tl-content"><strong>T+0:</strong> Developer Ajay installs trojanized Python package from a look-alike domain (registered 1 week ago)<div class="tl-time">VS Code → python.exe → malicious_script.py</div></div></div>
+    <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>T+2 min:</strong> Script reads plaintext AWS credentials from <code>~/.aws/credentials</code> — a common but dangerous developer practice</div></div>
+    <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>T+5 min:</strong> Runs AWS reconnaissance (<code>sts get-caller-identity</code>) → lists S3 buckets → creates new access key for <strong>svc-etl-prod</strong> (production service account)</div></div>
+    <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>T+15 min → T+90 min:</strong> Downloads 18 GB via 2,400 S3 GetObject calls — <strong>14.2 GB customer PII</strong> + 3.8 GB financial reports</div></div>
+    <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>T+90 min:</strong> Data exfiltrated to external server linked to cloud-targeting threat infrastructure</div></div>
+    <div class="tl-item"><div class="tl-dot blue"></div><div class="tl-content"><strong>Root cause:</strong> Plaintext AWS credentials on dev workstation + unvetted package install. <strong>Under 2 hours from install to breach.</strong></div></div>
+  </div>
+</div> -->
 
 <!-- UC4 — WITHOUT MCP -->
 <div class="slide left-align" data-section="UC4: Cloud Compromise">
@@ -1286,75 +1239,45 @@ td:first-child{color:#e0e0e0;font-weight:500}
   </div>
 </div>
 
-<!-- UC4 — HOW MCP SOLVES THIS -->
+<!-- UC4 — HOW MCP SOLVES THIS + ENGINEERING & PRODUCT (MERGED) -->
 <div class="slide left-align" data-section="UC4: Cloud Compromise">
   <h3>How Log360Cloud MCP Solves This</h3>
   <div class="card-grid card-grid-3">
     <div class="card highlight">
       <h4>🔀 Cross-Domain Tracing</h4>
       <ul>
-        <li>Endpoint alert → Cloud investigation</li>
-        <li>Log360 has ingested CloudTrail logs</li>
-        <li>NLQ queries span endpoint + cloud</li>
-        <li>Three security domains unified</li>
+        <li>Endpoint alert → Cloud investigation seamlessly</li>
+        <li>Log360 ingests CloudTrail logs — cloud-native investigation via search</li>
+        <li>NLQ queries span endpoint + cloud audit logs</li>
+        <li>SentinelOne trigger → Log360 investigation — EDR-agnostic architecture</li>
       </ul>
     </div>
     <div class="card highlight">
       <h4>🔐 Supply Chain Awareness</h4>
       <ul>
-        <li>Malicious package domain: 1 week old</li>
-        <li>Exfil IP: known cloud threat infra</li>
-        <li>Dark web: clean → attack via package</li>
-        <li>New alert profile recommended</li>
+        <li>Malicious package domain flagged — 1 week old</li>
+        <li>Exfil IP: known cloud threat infra (IWB module)</li>
+        <li>Dark web: clean → attack via supply chain package</li>
+        <li>New alert profile recommended for supply chain vectors</li>
       </ul>
     </div>
     <div class="card highlight">
       <h4>⚡ Privilege Escalation Track</h4>
       <ul>
-        <li>CreateAccessKey on service account detected</li>
-        <li>2,400 S3 calls quantified by bucket</li>
+        <li>CreateAccessKey on service account detected in CloudTrail</li>
+        <li>2,400 S3 calls quantified by bucket via search</li>
         <li>14.2 GB PII exposure → legal trigger</li>
-        <li>Production service account → blast radius</li>
+        <li>Threat intel from single IWB module — no separate TI platform</li>
       </ul>
     </div>
   </div>
-  <div class="glow-box" style="margin-top:14px">
-    <p style="font-size:14px;color:#e0e0e0">💡 <strong>Key insight:</strong> A single dev workstation compromised the production cloud in under 2 hours. <strong class="accent">MCP traced endpoint → identity → cloud → data exfiltration across three completely different security domains.</strong></p>
-  </div>
-</div>
-
-<!-- UC4 — SOC IMPACT -->
-<!-- <div class="slide left-align" data-section="UC4: Cloud Compromise">
-  <h3>SOC Impact — Measurable Improvements</h3>
-  <div class="metrics">
-    <div class="metric"><div class="num green">97%</div><div class="label">MTTR Reduction</div></div>
-    <div class="metric"><div class="num blue">25</div><div class="label">Log360 Calls</div></div>
-    <div class="metric"><div class="num red">18 GB</div><div class="label">Exfil Quantified</div></div>
-    <div class="metric"><div class="num yellow">3</div><div class="label">Security Domains</div></div>
-    <div class="metric"><div class="num purple">2</div><div class="label">Rule Gaps Found</div></div>
-  </div>
-  <table>
-    <tr><th>Metric</th><th>Without MCP</th><th>With MCP</th><th>Improvement</th></tr>
-    <tr><td>Endpoint-to-cloud investigation</td><td class="red">4–6 hours</td><td class="green">5–8 minutes</td><td><strong class="accent">~97% faster</strong></td></tr>
-    <tr><td>AWS API activity tracing</td><td>CloudTrail console (separate)</td><td>Log360 NLQ (same interface)</td><td><strong class="accent">Unified</strong></td></tr>
-    <tr><td>Data exposure quantification</td><td>Hours (manual S3 log analysis)</td><td>Seconds (NLQ query)</td><td><strong class="accent">14.2 GB PII identified</strong></td></tr>
-    <tr><td>Privilege escalation detection</td><td>Separate IAM audit</td><td>Auto-traced in kill chain</td><td><strong class="accent">Automatic</strong></td></tr>
-    <tr><td>Supply chain attack awareness</td><td>No detection rules existed</td><td>Gap identified + rule recommended</td><td><strong class="accent">Proactive</strong></td></tr>
-  </table>
-</div> -->
-
-<!-- UC4 — ENGINEERING + PRODUCT -->
-<div class="slide left-align" data-section="UC4: Cloud Compromise">
-  <h3>Engineering & Product Perspective</h3>
-  <div class="split">
+  <div class="split" style="margin-top:16px">
     <div class="col">
       <h4>🏗️ Engineering Value</h4>
       <ul class="bullets compact">
         <li>CloudTrail log ingestion into Log360 = <strong>cloud-native investigation via NLQ</strong></li>
-        <li>SentinelOne trigger → Log360 investigation — EDR-agnostic architecture</li>
         <li>Same MCP protocol regardless of endpoint vendor (CS, S1, Elastic)</li>
         <li>Process analysis spans both endpoint Sysmon and cloud audit logs</li>
-        <li>Threat intel (IP/domain) from single IWB module — no separate TI platform</li>
       </ul>
     </div>
     <div class="col">
@@ -1363,9 +1286,11 @@ td:first-child{color:#e0e0e0;font-weight:500}
         <li><strong class="accent">Cloud-native story:</strong> Endpoint SIEM + Cloud SIEM unified</li>
         <li><strong class="blue">DevSecOps relevance:</strong> Supply chain attacks are the fastest-growing vector</li>
         <li><strong class="yellow">Data breach response:</strong> Automated evidence for regulatory compliance (GDPR, etc.)</li>
-        <li><strong class="purple">PII quantification:</strong> "14.2 GB of customer PII" — board-level metric instantly</li>
       </ul>
     </div>
+  </div>
+  <div class="glow-box" style="margin-top:14px">
+    <p style="font-size:14px;color:#e0e0e0">💡 <strong>Key insight:</strong> A single dev workstation compromised the production cloud in under 2 hours. <strong class="accent">MCP traced endpoint → identity → cloud → data exfiltration across three completely different security domains.</strong></p>
   </div>
 </div>
 
@@ -1403,7 +1328,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> get_detection_rules() <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Audit detection coverage</div><div class="tool-res">⚠️ GAPS: No "plaintext credential file access" rule | No "supply chain attack" alert profile</div></div></div>
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge sentinel">S1</span> isolate <span class="tool-type rest-api">REST API</span> | <span class="tool-badge aws">AWS</span> disable_keys <span class="tool-type rest-api">REST API</span> | <span class="tool-badge okta">Okta</span> revoke <span class="tool-type rest-api">REST API</span> | <span class="tool-badge palo">PAN</span> block <span class="tool-type rest-api">REST API</span><div class="tool-detail"><div class="tool-req">→ Cross-domain containment<br><em class="tiny">ⓘ purple-mcp is read-only (no isolate). cloudtrail-mcp has no key management (use AWS IAM API). okta-mcp-server offers deactivate_user [Official] but not session revocation. PAN Cortex MCP is read-only. All write actions require custom REST API tools.</em></div><div class="tool-res">✓ Endpoint isolated. AWS keys disabled for svc-etl-prod + ajay.dev. Sessions revoked. Exfil IPs blocked. P1 incident + legal task created.</div></div></div>
       </div>
-      <div class="chat-summary">✅ Full endpoint→cloud kill chain traced. 18 GB exfiltrated (14.2 GB PII). Supply chain attack vector identified. 36 tool calls, 6 vendors. Time: ~7 minutes.</div>
+      <div class="chat-summary">✅ Full endpoint→cloud kill chain traced. 18 GB exfiltrated (14.2 GB PII). Supply chain attack vector identified. 6 vendors orchestrated. Time: ~7 minutes.</div>
     </div></div>
   </div>
   <p class="tiny center" style="margin-top:8px">Click any tool call to expand request/response details</p>
@@ -1417,9 +1342,9 @@ td:first-child{color:#e0e0e0;font-weight:500}
 <div class="slide section-slide" data-section="UC5: Board Briefing">
   <span class="uc-badge uc5">USE CASE 5</span>
   <h1 class="center"><span class="white">Board-Ready Security Posture</span><br><span class="accent">In One Conversation</span></h1>
-  <p class="value-line">25 tool calls · 6 vendors · Complete cross-vendor audit revealing hidden blind spots</p>
+  <p class="value-line">Cross-vendor orchestration · Complete cross-vendor audit revealing hidden blind spots</p>
   <div class="tags" style="margin-top:18px;justify-content:center">
-    <span class="tag log360">LOG360 61%</span>
+    <span class="tag log360">LOG360 CLOUD</span>
     <span class="tag falcon">CROWDSTRIKE</span>
     <span class="tag m365">M365 DEFENDER</span>
     <span class="tag okta">OKTA</span>
@@ -1567,18 +1492,46 @@ td:first-child{color:#e0e0e0;font-weight:500}
   </table>
 </div> -->
 
-<!-- UC5 — ENGINEERING + PRODUCT -->
+<!-- UC5 — HOW MCP SOLVES THIS + ENGINEERING & PRODUCT (MERGED — NEWLY ADDED) -->
 <div class="slide left-align" data-section="UC5: Board Briefing">
-  <h3>Engineering & Product Perspective</h3>
-  <div class="split">
+  <h3>How Log360Cloud MCP Solves This</h3>
+  <div class="card-grid card-grid-3">
+    <div class="card highlight">
+      <h4>📊 Infrastructure Health Audit</h4>
+      <ul>
+        <li>Log source API identifies inactive sources at scale</li>
+        <li>Agent API surfaces outdated or non-communicating agents</li>
+        <li>Log type coverage reveals blind spots (e.g., no container logs)</li>
+        <li>Meta APIs enable infrastructure health checks via MCP</li>
+      </ul>
+    </div>
+    <div class="card highlight">
+      <h4>🔍 Detection Posture Analysis</h4>
+      <ul>
+        <li>Alert API aggregates Q4 threat summary by severity</li>
+        <li>Incident API provides resolution metrics across the quarter</li>
+        <li>Detection rule audit identifies never-fired or misconfigured rules</li>
+        <li>UEBA risk scoring surfaces highest-risk users with trend data</li>
+      </ul>
+    </div>
+    <div class="card highlight">
+      <h4>🌑 Proactive Risk Discovery</h4>
+      <ul>
+        <li>Dark web scan (IWB module) reveals exposed credentials org-wide</li>
+        <li>Cross-vendor stats pulled in parallel — EDR, email, FW, IdP</li>
+        <li>Prioritized investment recommendations generated from findings</li>
+        <li>Quarterly cadence makes blind spot discovery continuous</li>
+      </ul>
+    </div>
+  </div>
+  <div class="split" style="margin-top:16px">
     <div class="col">
       <h4>🏗️ Engineering Value</h4>
       <ul class="bullets compact">
         <li>Meta APIs (log sources, agents, log types) enable infrastructure health at scale</li>
-        <li>Detection rule API allows automated MITRE ATT&CK coverage mapping</li>
         <li>NLQ supports aggregate queries (month-over-month trends)</li>
-        <li>Dark web API scales to entire domain scans — not per-user only</li>
-        <li>Same 18 MCP tools power both incident response AND executive reporting</li>
+        <li>Dark web API (IWB module) scales to entire domain scans — not per-user only</li>
+        <li>Same MCP tools power both incident response AND executive reporting</li>
       </ul>
     </div>
     <div class="col">
@@ -1586,11 +1539,13 @@ td:first-child{color:#e0e0e0;font-weight:500}
       <ul class="bullets compact">
         <li><strong class="accent">CISO tool:</strong> Direct value to executive buyer — justifies Log360 investment</li>
         <li><strong class="blue">Board-ready:</strong> Quantified metrics replace qualitative security hand-waving</li>
-        <li><strong class="yellow">ROI story:</strong> "We found 9 blind spots in 15 minutes" — sells itself</li>
-        <li><strong class="purple">Retention:</strong> Quarterly automated audits make Log360 indispensable</li>
+        <li><strong class="yellow">Retention:</strong> Quarterly automated audits make Log360 indispensable</li>
         <li><strong class="green">Expansion:</strong> Every blind spot found = upsell for module/feature</li>
       </ul>
     </div>
+  </div>
+  <div class="glow-box" style="margin-top:14px">
+    <p style="font-size:14px;color:#e0e0e0">💡 <strong>Key insight:</strong> The most valuable finding wasn't about any attack that happened — it was about <strong class="accent">89 employees with compromised passwords</strong> and <strong class="accent">zero cloud detection rules</strong> — both ticking time bombs waiting for the next attacker.</p>
   </div>
 </div>
 
@@ -1628,7 +1583,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge crowdstrike">CrowdStrike</span> falcon_search_detections(filter: "last_updated:>Q4_start") <span class="tool-type official">Official</span> | <span class="tool-badge m365">M365</span> email_stats <span class="tool-type rest-api">REST API</span> | <span class="tool-badge palo">PAN</span> fw_stats <span class="tool-type rest-api">REST API</span><div class="tool-detail"><div class="tool-req">→ Pull Q4 metrics from each security vendor<br><em class="tiny">ⓘ CrowdStrike: Original detection_stats renamed to falcon_search_detections [Official falcon-mcp tool]. M365: No official security MCP server — custom tool via Microsoft Graph Security API. PAN: Cortex MCP has get_issues/get_cases [Official] but no aggregate stats tool — custom tool for FW stats.</em></div><div class="tool-res">EDR: 4,200 detections (142 outdated sensors) | Email: 48K blocked (0.65% miss) | FW: 890 C2 blocked</div></div></div>
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge okta">Okta</span> get_logs(filter: "eventType eq ...") <span class="tool-type official">Official</span> | <span class="tool-badge qualys">Qualys</span> get_vuln_stats <span class="tool-type custom">Custom</span><div class="tool-detail"><div class="tool-req">→ Identity + vulnerability posture<br><em class="tiny">ⓘ Okta: Original get_identity_stats renamed to get_logs [Official okta-mcp-server tool] — system log provides auth events for MFA analysis. Qualys: No official MCP server exists — custom MCP tool via Qualys API needed.</em></div><div class="tool-res">⚠️ MFA: 94% (312 users without). Patch SLA: 18 days vs 14-day target. 23 critical vulns on internet-facing.</div></div></div>
       </div>
-      <div class="chat-summary">✅ Q4 board briefing ready. 9 critical blind spots surfaced. 6 prioritized investment recommendations generated. 25 tool calls, 6 vendors. Time: ~15 minutes.</div>
+      <div class="chat-summary">✅ Q4 board briefing ready. 9 critical blind spots surfaced. 6 prioritized investment recommendations generated. 6 vendors audited. Time: ~15 minutes.</div>
     </div></div>
   </div>
   <p class="tiny center" style="margin-top:8px">Click any tool call to expand request/response details</p>
@@ -1647,8 +1602,8 @@ td:first-child{color:#e0e0e0;font-weight:500}
     <div class="card highlight">
       <h4>🔗 From Tool to Platform</h4>
       <ul>
-        <li>Log360 handles <strong>55–62%</strong> of all investigation calls</li>
-        <li>8 modules compose into any investigation pattern</li>
+        <li>Log360 serves as the <strong>primary investigation hub</strong> in every use case</li>
+        <li>Multiple modules compose into any investigation pattern</li>
         <li>Same tools power incidents, insider reviews & board reports</li>
         <li>Identity resolution enables cross-vendor correlation</li>
       </ul>
@@ -1656,9 +1611,9 @@ td:first-child{color:#e0e0e0;font-weight:500}
     <div class="card highlight">
       <h4>📊 Five Proof Points</h4>
       <ul>
-        <li><strong>164 total tool calls</strong> across 5 use cases</li>
-        <li><strong>117 calls</strong> (71%) handled by Log360</li>
-        <li>95–99% time reduction in every scenario</li>
+        <li><strong>5 real-world scenarios</strong> across diverse threat vectors</li>
+        <li><strong>Multi-vendor orchestration</strong> in every use case</li>
+        <li>Significant time reduction in every scenario</li>
         <li>Detection gaps found in every single investigation</li>
       </ul>
     </div>
@@ -1709,7 +1664,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
   <p class="desc" style="margin-bottom:14px">MCP is an industry-wide protocol. Multiple security vendors now publish MCP servers. Here's where Log360Cloud's MCP server adds specific value.</p>
   <table style="margin-top:14px">
     <tr><th>Capability</th><th>Industry Trend</th><th style="color:#4ec9b0">Log360 MCP Value</th></tr>
-    <tr><td>MCP Server Availability</td><td class="green">Most major vendors now offer MCP servers</td><td>18 tools across 8 modules in a single MCP server</td></tr>
+    <tr><td>MCP Server Availability</td><td class="green">Most major vendors now offer MCP servers</td><td>Multiple modules (alerts, search, UEBA, threat intel, incidents, log management) in a single MCP server</td></tr>
     <tr><td>Natural Language Queries</td><td class="yellow">⚠️ Growing — many vendors offer NL interfaces</td><td>NLQ queries across <strong>all ingested log sources</strong> (34+ types) — not limited to own data</td></tr>
     <tr><td>Threat Intelligence</td><td class="green">Available across vendors (often as addon)</td><td>IWB addon module — IP, domain, process, dark web enrichment</td></tr>
     <tr><td>Detection Gap Analysis</td><td class="yellow">⚠️ Rare — post-incident rule auditing is uncommon</td><td class="green"><strong>Automated post-investigation detection posture check</strong></td></tr>
@@ -1718,7 +1673,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
     <tr><td>Infrastructure Health via MCP</td><td class="yellow">⚠️ Product-specific dashboards only</td><td class="green"><strong>Log source health, agent status, coverage gaps exposed via MCP</strong></td></tr>
   </table>
   <div class="glow-box" style="margin-top:14px">
-    <p style="font-size:14px;color:#e0e0e0"><strong class="accent">Key takeaway:</strong> Log360 MCP's value isn't in having an MCP server (the ecosystem is growing). It's in the <strong>breadth of modules exposed</strong> (8 modules, 18 tools) and the ability to <strong>query across all ingested log sources via NLQ</strong>, making it a powerful hub in multi-vendor investigations.</p>
+    <p style="font-size:14px;color:#e0e0e0"><strong class="accent">Key takeaway:</strong> Log360 MCP's value isn't in having an MCP server (the ecosystem is growing). It's in the <strong>breadth of modules exposed</strong> (alerts, search, UEBA, threat intel, incidents, log management, and more) and the ability to <strong>query across all ingested log sources via NLQ</strong>, making it a powerful hub in multi-vendor investigations.</p>
   </div>
 </div>
 
@@ -1730,7 +1685,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
       <div class="icon">🏆</div>
       <h4>Differentiation Strategy</h4>
       <ul>
-        <li>8 modules × 18 tools in one MCP server — broad capability surface</li>
+        <li>Multiple modules exposed via one MCP server — broad capability surface</li>
         <li>NLQ across all ingested logs — vendor-neutral investigation</li>
         <li>Works WITH existing security stacks, not against them</li>
         <li>Open protocol = future-proof, vendor-agnostic integration</li>
@@ -1740,7 +1695,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
       <div class="icon">🔒</div>
       <h4>Customer Stickiness</h4>
       <ul>
-        <li>Log360 becomes the AI's primary data source (55–62% of calls)</li>
+        <li>Log360 becomes the AI's primary data source across investigations</li>
         <li>Cross-vendor value makes the platform harder to replace</li>
         <li>Quarterly posture audits create recurring engagement</li>
         <li>Every investigation surfaces module adoption opportunities</li>
