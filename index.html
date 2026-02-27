@@ -340,6 +340,90 @@ td:first-child{color:#e0e0e0;font-weight:500}
   font-weight:600;background:#e8a31714;color:#e8a317;border:1px solid #e8a31740;
   letter-spacing:.3px;
 }
+
+/* ══════════════════════════════════════════════
+   SLIDE PICKER OVERLAY
+   ══════════════════════════════════════════════ */
+.slide-picker-backdrop{
+  position:fixed;inset:0;background:rgba(5,5,10,.88);z-index:300;
+  opacity:0;pointer-events:none;transition:opacity .3s ease;
+  display:flex;align-items:center;justify-content:center;
+}
+.slide-picker-backdrop.open{opacity:1;pointer-events:auto}
+
+.slide-picker-panel{
+  width:92vw;max-width:1200px;max-height:82vh;overflow-y:auto;
+  padding:28px 24px 20px;border-radius:14px;
+  background:#111120;border:1px solid #252535;
+  transform:scale(.92);transition:transform .3s ease;
+}
+.slide-picker-backdrop.open .slide-picker-panel{transform:scale(1)}
+
+.slide-picker-panel::-webkit-scrollbar{width:6px}
+.slide-picker-panel::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
+
+.sp-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid #252535;
+}
+.sp-header h3{font-size:16px;color:#e0e0e0;margin:0}
+.sp-close{
+  width:32px;height:32px;border-radius:50%;border:1px solid #3e3e42;
+  background:#1e1e1e;color:#ccc;font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:.2s;
+}
+.sp-close:hover{background:#333;color:#fff;border-color:#007acc}
+
+.sp-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:12px;
+}
+.sp-card{
+  cursor:pointer;border-radius:8px;overflow:hidden;
+  border:2px solid #252535;background:#0a0a14;transition:.25s;
+  position:relative;
+}
+.sp-card:hover{border-color:#007acc88;transform:translateY(-2px)}
+.sp-card.sp-active{border-color:#4ec9b0;box-shadow:0 0 12px #4ec9b033}
+
+.sp-thumb{
+  width:100%;aspect-ratio:16/9;overflow:hidden;position:relative;
+  background:#08080f;
+}
+.sp-thumb-inner{
+  position:absolute;top:0;left:0;
+  width:1920px;height:1080px;
+  transform-origin:top left;
+  pointer-events:none;
+}
+.sp-thumb-inner .slide{
+  position:relative !important;opacity:1 !important;pointer-events:none !important;
+  width:1920px !important;height:1080px !important;
+  transform:none !important;
+}
+
+.sp-label{
+  padding:7px 10px;display:flex;align-items:center;gap:6px;
+}
+.sp-num{
+  font-size:10px;font-weight:700;color:#555;min-width:20px;
+  text-align:center;background:#1a1a2e;border-radius:4px;padding:2px 5px;
+}
+.sp-title{
+  font-size:11px;color:#bbb;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;line-height:1.3;
+}
+.sp-section{
+  font-size:9px;color:#666;letter-spacing:.5px;text-transform:uppercase;
+  padding:0 10px 6px;margin-top:-2px;
+}
+
+/* Toggle button */
+.slide-picker-toggle{
+  width:42px;height:42px;border-radius:50%;border:1px solid #3e3e42;
+  background:#1e1e1e;color:#ccc;font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:.2s;
+}
+.slide-picker-toggle:hover{background:#333;color:#fff;border-color:#007acc}
 </style>
 </head>
 <body>
@@ -2030,8 +2114,20 @@ td:first-child{color:#e0e0e0;font-weight:500}
      NAVIGATION
      ═══════════════════════════════════════════════════════════════ -->
 <div class="nav">
+  <button class="slide-picker-toggle" onclick="togglePicker()" title="Slide Navigator (G)">▦</button>
   <button id="prevBtn" onclick="go(-1)">◀</button>
   <button id="nextBtn" onclick="go(1)">▶</button>
+</div>
+
+<!-- Slide Picker Overlay -->
+<div class="slide-picker-backdrop" id="slidePicker" onclick="closePicker(event)">
+  <div class="slide-picker-panel" id="slidePickerPanel">
+    <div class="sp-header">
+      <h3>📑 Jump to Slide</h3>
+      <button class="sp-close" onclick="togglePicker()">✕</button>
+    </div>
+    <div class="sp-grid" id="spGrid"></div>
+  </div>
 </div>
 
 <script>
@@ -2088,6 +2184,119 @@ document.addEventListener('touchend', e => {
 });
 
 update();
+
+/* ── Slide Picker ── */
+const pickerEl = document.getElementById('slidePicker');
+const spGrid   = document.getElementById('spGrid');
+let pickerBuilt = false;
+
+function buildPicker() {
+  if (pickerBuilt) return;
+  spGrid.innerHTML = '';
+  slides.forEach((sl, i) => {
+    const card = document.createElement('div');
+    card.className = 'sp-card' + (i === cur ? ' sp-active' : '');
+    card.setAttribute('data-idx', i);
+    card.onclick = function(e) {
+      e.stopPropagation();
+      jumpTo(i);
+    };
+
+    // Extract title text from the slide
+    const h = sl.querySelector('h1,h2,h3');
+    let titleText = h ? h.textContent.trim().substring(0, 60) : 'Slide ' + (i + 1);
+    const section = sl.dataset.section || '';
+
+    // Build thumbnail by cloning the slide into a scaled container
+    const thumb = document.createElement('div');
+    thumb.className = 'sp-thumb';
+    const inner = document.createElement('div');
+    inner.className = 'sp-thumb-inner';
+    const clone = sl.cloneNode(true);
+    clone.classList.add('active');
+    clone.classList.remove('exit-left','exit-right');
+    // Remove interactive elements in clone
+    clone.querySelectorAll('.tool-call').forEach(t => t.onclick = null);
+    inner.appendChild(clone);
+    thumb.appendChild(inner);
+
+    // Scale the 1920×1080 render into the thumbnail
+    const scaleThumb = () => {
+      const w = thumb.offsetWidth;
+      if (w > 0) inner.style.transform = 'scale(' + (w / 1920) + ')';
+    };
+    requestAnimationFrame(scaleThumb);
+
+    const label = document.createElement('div');
+    label.className = 'sp-label';
+    label.innerHTML = '<span class="sp-num">' + (i + 1) + '</span><span class="sp-title">' + titleText + '</span>';
+
+    card.appendChild(thumb);
+    if (section) {
+      const sec = document.createElement('div');
+      sec.className = 'sp-section';
+      sec.textContent = section;
+      card.appendChild(sec);
+    }
+    card.appendChild(label);
+    spGrid.appendChild(card);
+  });
+  pickerBuilt = true;
+
+  // Ensure thumbnails scale after layout
+  requestAnimationFrame(() => {
+    spGrid.querySelectorAll('.sp-thumb').forEach(thumb => {
+      const inner = thumb.querySelector('.sp-thumb-inner');
+      const w = thumb.offsetWidth;
+      if (w > 0) inner.style.transform = 'scale(' + (w / 1920) + ')';
+    });
+  });
+}
+
+function refreshPickerActive() {
+  spGrid.querySelectorAll('.sp-card').forEach((c, i) => {
+    c.classList.toggle('sp-active', i === cur);
+  });
+}
+
+function togglePicker() {
+  const isOpen = pickerEl.classList.contains('open');
+  if (!isOpen) {
+    buildPicker();
+    refreshPickerActive();
+    // Scroll current slide card into view
+    requestAnimationFrame(() => {
+      const active = spGrid.querySelector('.sp-active');
+      if (active) active.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+  pickerEl.classList.toggle('open');
+}
+
+function closePicker(e) {
+  if (e.target === pickerEl) pickerEl.classList.remove('open');
+}
+
+function jumpTo(idx) {
+  pickerEl.classList.remove('open');
+  const dir = idx >= cur ? 1 : -1;
+  show(idx, dir);
+}
+
+// Keyboard: 'G' to toggle picker, Escape to close
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && pickerEl.classList.contains('open')) {
+    e.preventDefault();
+    pickerEl.classList.remove('open');
+  }
+  if ((e.key === 'g' || e.key === 'G') && !e.ctrlKey && !e.metaKey && !e.altKey) {
+    const tag = document.activeElement?.tagName;
+    if (tag !== 'INPUT' && tag !== 'TEXTAREA') {
+      e.preventDefault();
+      togglePicker();
+    }
+  }
+});
 </script>
 
 </body>
