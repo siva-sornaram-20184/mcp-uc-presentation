@@ -461,7 +461,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
     <div class="card purple-border">
       <h4><span class="purple">UC 4</span> — Cloud Service Account Compromise</h4>
       <p>Trojanized Python package → AWS credential theft → data exfiltration traced</p>
-      <p class="tiny" style="margin-top:6px">Cross-vendor orchestration · 4 vendors</p>
+      <p class="tiny" style="margin-top:6px">Cross-vendor orchestration · 3 vendors</p>
     </div>
     <div class="card green-border">
       <h4><span class="green">UC 5</span> — Quarterly Board Briefing</h4>
@@ -681,6 +681,10 @@ td:first-child{color:#e0e0e0;font-weight:500}
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> get_user_risk_score(user: "ACME\maria.rossi") <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ UEBA behavioral risk assessment</div><div class="tool-res">🔴 CRITICAL risk level — multiple high-severity behavioral anomalies detected across login, file access, and lateral movement patterns</div></div></div>
       </div>
       <div class="tool-calls-phase">
+        <div class="phase-label">Phase 5b — Exfiltration Tracing</div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> NLQ: "outbound data transfers from WIN-FIN-2201 or SRV-FILE-01 to external IPs, last 4 hours" <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Check for data exfiltration before encryption stage (story T+35 min)</div><div class="tool-res">🔴 Outbound transfer to C2 IP detected from SRV-FILE-01 — exfiltration over C2 channel confirmed (MITRE T1041) prior to encryption stage</div></div></div>
+      </div>
+      <div class="tool-calls-phase">
         <div class="phase-label">Phase 6 — Email Telemetry &amp; Blast Radius</div>
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge m365">M365 Defender</span> search_email_messages(sender: "billing@acme-inv0ice.com", time: -7d) <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Query M365 Defender / Exchange message traces for phishing campaign scope<br><em class="tiny">ⓘ Via M365 Defender MCP tools</em></div><div class="tool-res">⚠️ Same phishing email delivered to 12 other employees in Finance &amp; Procurement. 3 opened the attachment — no further execution observed on those hosts.</div></div></div>
       </div>
@@ -688,7 +692,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
         <div class="phase-label">Phase 7 — Detection Coverage Review</div>
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> get_detection_rules() <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Review detection coverage for techniques observed in this attack</div><div class="tool-res">⚠️ Potential gaps surfaced for analyst review: No "pass-the-hash" rule (T1550.002) | No "RDP to fileserver from workstation" rule (T1021.001)</div></div></div>
       </div>
-      <div class="chat-summary">✅ Ransomware kill chain correlated across CrowdStrike, Okta, M365 logs, and Log360 Cloud. 2 lateral movement hops identified. Blast radius assessed via email telemetry. 2 potential detection gaps surfaced for review. Time: ~5 minutes.</div>
+      <div class="chat-summary">✅ Ransomware kill chain correlated across CrowdStrike, Okta, M365 logs, and Log360 Cloud. 2 lateral movement hops identified. Data exfiltration over C2 channel confirmed. Blast radius assessed via email telemetry. 2 potential detection gaps surfaced for review. Time: ~5 minutes.</div>
     </div></div>
   </div>
   <p class="tiny center" style="margin-top:8px">Click any tool call to expand request/response details</p>
@@ -868,7 +872,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
       <div class="tool-calls-phase">
         <div class="phase-label">Phase 1 — Initial Risk Assessment</div>
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> get_user_risk_score(user: "ACME\james.park") <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Check current UEBA risk score</div><div class="tool-res">🔴 HIGH risk — steep behavioral spike detected over the past three weeks, driven by off-hours access and bulk data movement</div></div></div>
-        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> get_user_analysis_data(user: "ACME\james.park") <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Get important events &amp; associated devices</div><div class="tool-res">⚠️ "Bulk File Download from Patent Repo" (3d ago) | "USB Mass Storage" ×11 | "First-Time HR-Comp Share Access" | rclone.exe detected</div></div></div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> get_user_analysis_data(user: "ACME\james.park") <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Get important events &amp; associated devices</div><div class="tool-res">⚠️ "Bulk File Download from Patent Repo" (3d ago) | "USB Mass Storage" ×11 | "First-Time HR-Comp Share Access" | off-hours bulk transfer pattern</div></div></div>
       </div>
       <div class="tool-calls-phase">
         <div class="phase-label">Phase 2 — Identity Resolution</div>
@@ -1074,7 +1078,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
       </div>
       <div class="tool-calls-phase">
         <div class="phase-label">Phase 2 — SIEM Cross-Correlation</div>
-        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> get_alerts(category: "brute_force", time: -1h) <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Check if SIEM independently detected the same campaign</div><div class="tool-res">✓ "Multiple Failed Logons" ×23 IPs + "Account Lockout Surge" (89 locked) — <strong>cross-confirms XDR</strong></div></div></div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> get_alerts(category: "brute_force", time: -1h) <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Check if SIEM independently detected the same campaign</div><div class="tool-res">✓ "Multiple Failed Logons" ×23 IPs + "Account Lockout Surge" (72 locked) — <strong>cross-confirms XDR</strong></div></div></div>
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> list_incidents(category: "credential_stuffing", time: -7d) <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Check for related prior incidents</div><div class="tool-res">⚠️ Similar incident 5 days ago — this is a <strong>recurring campaign</strong></div></div></div>
       </div>
       <div class="tool-calls-phase">
@@ -1149,7 +1153,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
     <span class="flow-arrow">↔</span>
     <div class="flow-node mcp">🤖 MCP Copilot<br><span style="font-size:10px">Cross-vendor orchestration</span></div>
     <span class="flow-arrow">↔</span>
-    <div class="flow-node vendor">🛡️ S1 · Okta · AWS<br><span style="font-size:10px">Endpoint + Cloud + Identity</span></div>
+    <div class="flow-node vendor">🛡️ S1 · Okta<br><span style="font-size:10px">Endpoint + Identity</span></div>
     <span class="flow-arrow">→</span>
     <div class="flow-node result">🚨 P1 Incident<br><span style="font-size:10px">Legal breach review</span></div>
   </div>
@@ -1331,9 +1335,9 @@ td:first-child{color:#e0e0e0;font-weight:500}
   <div class="flow" style="margin-bottom:20px">
     <div class="flow-node mcp">🤖 CISO Prompt<br><span style="font-size:10px">"Prepare Q4 briefing"</span></div>
     <span class="flow-arrow">→</span>
-    <div class="flow-node log360">📊 Log360 Cloud<br><span style="font-size:10px">Infrastructure + Threats + UEBA</span></div>
+    <div class="flow-node log360">📊 Log360 Cloud<br><span style="font-size:10px">SIEM · UEBA · Threats · Email/FW (ingested)</span></div>
     <span class="flow-arrow">→</span>
-    <div class="flow-node vendor">🛡️ 5 Vendors<br><span style="font-size:10px">EDR + Email + FW + IdP + VM</span></div>
+    <div class="flow-node vendor">🛡️ CrowdStrike · Okta<br><span style="font-size:10px">EDR + Identity (via MCP)</span></div>
     <span class="flow-arrow">→</span>
     <div class="flow-node result">📋 Board Report<br><span style="font-size:10px">Threats · Gaps · Investments</span></div>
   </div>
@@ -1437,7 +1441,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
         <li>UEBA risk trends computed with month-over-month deltas</li>
         <li>Dark web scan (IWB add-on) reveals 89 at-risk employees</li>
         <li>Detection rule audit: 39 never-fired rules flagged</li>
-        <li>Cross-vendor stats pulled in parallel (EDR, email, FW, IdP)</li>
+        <li>Cross-vendor stats pulled in parallel (EDR, IdP, email/FW via ingested logs)</li>
         <li>Risk-prioritized security improvement recommendations generated</li>
         <li><strong>Estimated time: 15–20 minutes</strong></li>
         <li><strong>Coverage gaps proactively surfaced every quarter</strong></li>
@@ -1492,7 +1496,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
       <h4>🌑 Proactive Risk Discovery</h4>
       <ul>
         <li>Dark web scan (IWB add-on module) reveals exposed credentials org-wide</li>
-        <li>Cross-vendor stats pulled in parallel — EDR, email, FW, IdP</li>
+        <li>Cross-vendor stats pulled in parallel — EDR, IdP, email/FW via ingested logs</li>
         <li>Risk-prioritized security improvement recommendations generated from findings</li>
         <li>Quarterly cadence makes coverage gap discovery continuous</li>
       </ul>
@@ -1539,13 +1543,13 @@ td:first-child{color:#e0e0e0;font-weight:500}
       </div>
       <div class="tool-calls-phase">
         <div class="phase-label">Phase 2 — Threat &amp; Detection Summary</div>
-        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> get_alerts(time: Q4, group_by: severity) <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Aggregate Q4 alert statistics</div><div class="tool-res">14,200 total alerts | 18 Critical, 124 High, 1,890 Med | Top: Brute Force 24%, Suspicious Logon 18%, Malware 12%</div></div></div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> get_alerts(time: Q4, group_by: severity) <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Aggregate Q4 alert statistics</div><div class="tool-res">14,200 total alerts | 18 Critical, 124 High, 2,100 Med | Top: Brute Force 24%, Suspicious Logon 18%, Malware 12%</div></div></div>
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> get_detection_rules() <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Audit detection rule effectiveness</div><div class="tool-res">128 rules, 89 fired in Q4, <strong>39 NEVER fired</strong>. ❌ Zero cloud-specific detection rules. Lateral movement covers RDP only.</div></div></div>
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> list_incidents(time: Q4) <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Q4 incident summary</div><div class="tool-res">34 total (3 Critical, 12 High, 19 Medium). 31 closed, 3 open. Avg resolution: 4.2 days.</div></div></div>
       </div>
       <div class="tool-calls-phase">
         <div class="phase-label">Phase 3 — Behavioral Analytics</div>
-        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> get_user_risk_score(filter: top_riskiest) <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Find highest-risk users</div><div class="tool-res">🔴 8 users CRITICAL (>80), 23 users HIGH (60-80). 40% increase vs. Q3.</div></div></div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> get_user_risk_score(filter: top_riskiest) <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Find highest-risk users</div><div class="tool-res">🔴 8 users CRITICAL (>80), 23 users HIGH (60-80). 40% increase vs. Q3. 1,890 UEBA anomalies flagged in Q4.</div></div></div>
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> NLQ: "month-over-month failed logons Q4" <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Identify login anomaly trends</div><div class="tool-res">Oct: 12,400 | Nov: 14,200 | Dec: <strong>28,900</strong> — December spike correlates with credential stuffing campaign</div></div></div>
       </div>
       <div class="tool-calls-phase">
@@ -1553,7 +1557,9 @@ td:first-child{color:#e0e0e0;font-weight:500}
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> get_dark_web_insights(domain: "acme.com") <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Org-wide dark web credential scan</div><div class="tool-res">🔴 847 corporate emails in dumps. 312 with passwords. <strong>89 are ACTIVE employees who haven't changed passwords.</strong></div></div></div>
       </div>
       <div class="tool-calls-phase">
-        <div class="phase-label">Phase 5 — Cross-Vendor Stats</div>
+        <div class="phase-label">Phase 5 — Cross-Vendor Stats &amp; Ingested Log Metrics</div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> NLQ: "email security blocks and firewall C2 blocks, Q4" <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Pull email and network security metrics from ingested logs</div><div class="tool-res">Email: 48,000 malicious emails blocked (per ingested email security logs) | Firewall: 890 C2 callbacks blocked (per ingested firewall logs)</div></div></div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> NLQ: "patch compliance for critical servers, Q4" <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Check patch SLA compliance from ingested patch management logs</div><div class="tool-res">⚠️ Average patch time: 18 days vs. 14-day SLA target. Critical vulnerabilities on 6 internet-facing systems exceed remediation window.</div></div></div>
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge crowdstrike">CrowdStrike</span> falcon_search_detections(filter: "last_updated:>Q4_start") <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Pull Q4 EDR detection metrics</div><div class="tool-res">EDR: 4,200 detections across Q4 (142 outdated sensors flagged)</div></div></div>
         <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge okta">Okta</span> get_logs(filter: "eventType eq ...") <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Identity posture audit via Okta system logs<br><em class="tiny">ⓘ okta-mcp-server system log provides auth events for MFA analysis</em></div><div class="tool-res">⚠️ MFA adoption: 94% (312 users without MFA). Auth anomalies trending up in Q4.</div></div></div>
       </div>
@@ -1605,7 +1611,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
   <div class="flow">
     <div class="flow-node log360">🔍 Log360 NLQ<br><span style="font-size:10px">CloudTrail + Azure logs</span></div>
     <span class="flow-arrow">↔</span>
-    <div class="flow-node vendor">🔐 Okta · AWS<br><span style="font-size:10px">Identity + Policy</span></div>
+    <div class="flow-node vendor">🔐 Okta<br><span style="font-size:10px">Identity Resolution</span></div>
     <span class="flow-arrow">→</span>
     <div class="flow-node result">📋 Compliance Report<br><span style="font-size:10px">Evidence + Remediation</span></div>
   </div>
