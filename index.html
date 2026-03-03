@@ -456,7 +456,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
      ═══════════════════════════════════════════════════════════════ -->
 <div class="slide left-align" data-section="Introduction">
   <h2><span class="red">The Problem:</span> Security Is Fragmented by Design</h2>
-  <p class="desc" style="margin-bottom:18px">Every enterprise runs 6–10+ security tools. Each sees a fragment. No single tool sees the full attack.</p>
+  <p class="desc" style="margin-bottom:18px">Every enterprise runs multiple security tools. Each sees a fragment. No single tool sees the full attack.</p>
   <div class="card-grid card-grid-3">
     <div class="card red-border">
       <div class="icon">🔴</div>
@@ -476,7 +476,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
   </div>
   <div class="glow-box" style="margin-top:20px">
     <p style="font-size:15px;color:#e0e0e0"><strong class="accent">MCP changes this.</strong> Any AI client that supports MCP. One conversation. Every tool connected. Accelerated kill chain correlation in minutes.</p>
-    <p class="tiny" style="margin-top:8px;color:#888">MCP serves as an orchestration and correlation layer — it does not replace your SIEM, EDR, CSPM, or GRC tools.</p>
+    <!-- <p class="tiny" style="margin-top:8px;color:#888">MCP serves as an orchestration and correlation layer — it does not replace your SIEM, EDR, CSPM, or GRC tools.</p> -->
   </div>
 </div>
 
@@ -511,7 +511,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
           <div class="flow-node vendor" style="min-width:auto;padding:8px 10px">M365 Defender MCP<br><span style="font-size:9px">m365-defender-mcp-server</span></div>
         </div>
       </div>
-      <p class="tiny" style="margin-top:6px;text-align:center">⚠️ MCP is <strong>not</strong> shared middleware — each vendor runs its own server independently.</p>
+      <!-- <p class="tiny" style="margin-top:6px;text-align:center">⚠️ MCP is <strong>not</strong> shared middleware — each vendor runs its own server independently.</p> -->
     </div>
   </div>
 </div>
@@ -524,7 +524,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
      SLIDE 4 — AGENDA
      ═══════════════════════════════════════════════════════════════ -->
 <div class="slide" data-section="Introduction">
-  <h2 class="center">6 Real-World Use Cases</h2>
+  <h2 class="center">5 Real-World Use Cases</h2>
   <p class="desc center" style="margin-bottom:8px">Each demonstrated with actual MCP tool calls, measurable outcomes, and cross-vendor orchestration</p>
   <div class="card-grid" style="max-width:1060px">
     <div class="card red-border" style="cursor:pointer">
@@ -547,13 +547,15 @@ td:first-child{color:#e0e0e0;font-weight:500}
       <p>Trojanized Python package → AWS credential theft → data exfiltration traced</p>
       <p class="tiny" style="margin-top:6px">Cross-vendor orchestration · 3 vendors</p>
     </div>
+    <!-- UC5 Board Briefing card removed
     <div class="card green-border">
       <h4><span class="green">UC 5</span> — Quarterly Board Briefing</h4>
       <p>Cross-vendor posture assessment. Coverage gaps surfaced.</p>
       <p class="tiny" style="margin-top:6px">Cross-vendor orchestration · 3 vendors</p>
     </div>
+    -->
     <div class="card" style="border-color:#ff8a6544">
-      <h4><span class="orange">UC 6</span> — Cross-Cloud Compliance Violation</h4>
+      <h4><span class="orange">UC 5</span> — Cross-Cloud Compliance Violation</h4>
       <p>Misconfigured S3 bucket + Azure policy drift + IAM privilege escalation across platforms.</p>
       <p class="tiny" style="margin-top:6px">Cross-vendor orchestration · 4 vendors</p>
     </div>
@@ -675,7 +677,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
 </div>
 
 <!-- UC1 — HOW MCP SOLVES THIS + ENGINEERING & PRODUCT (MERGED) -->
-<div class="slide left-align" data-section="UC1: Ransomware">
+<!-- <div class="slide left-align" data-section="UC1: Ransomware">
   <h3>How Log360Cloud MCP Accelerates Investigation</h3>
   <div class="card-grid card-grid-3">
     <div class="card highlight">
@@ -730,7 +732,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
   <div class="glow-box" style="margin-top:14px">
     <p style="font-size:14px;color:#e0e0e0">💡 <strong>Key insight:</strong> Log360 NLQ provides network-level and log-based lateral movement tracing, while CrowdStrike contributes endpoint process-chain visibility. Each tool adds complementary telemetry — <strong class="accent">MCP correlates them together in one conversation.</strong></p>
   </div>
-</div>
+</div> -->
 
 <!-- UC1 — INTERACTIVE COPILOT CONVERSATION -->
 <div class="slide left-align" data-section="UC1: Ransomware">
@@ -891,7 +893,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
 </div>
 
 <!-- UC2 — HOW MCP SOLVES THIS + ENGINEERING & PRODUCT (MERGED) -->
-<div class="slide left-align" data-section="UC2: Insider Threat">
+<!-- <div class="slide left-align" data-section="UC2: Insider Threat">
   <h3>How Log360Cloud MCP Accelerates Investigation</h3>
   <div class="card-grid card-grid-3">
     <div class="card highlight">
@@ -943,7 +945,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
   <div class="glow-box" style="margin-top:14px">
     <p style="font-size:14px;color:#e0e0e0">💡 <strong>Key insight:</strong> The security tools <em>were</em> detecting the activity — 8 alerts fired. But policy was alert-only. <strong class="accent">MCP surfaced the systemic gap that allowed significant data movement to proceed unchecked.</strong></p>
   </div>
-</div>
+</div> -->
 
 <!-- UC2 — INTERACTIVE COPILOT CONVERSATION -->
 <div class="slide left-align" data-section="UC2: Insider Threat">
@@ -1091,7 +1093,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
 </div>
 
 <!-- UC3 — HOW MCP SOLVES THIS + ENGINEERING & PRODUCT (MERGED) -->
-<div class="slide left-align" data-section="UC3: Credential Stuffing">
+<!-- <div class="slide left-align" data-section="UC3: Credential Stuffing">
   <h3>How Log360Cloud MCP Accelerates Investigation</h3>
   <div class="card-grid card-grid-3">
     <div class="card highlight">
@@ -1119,7 +1121,6 @@ td:first-child{color:#e0e0e0;font-weight:500}
         <li>4 app access → medium risk</li>
         <li>2 mail forwarding + payroll → critical</li>
         <li>Note: Data exposure quantification depends on DLP logs, classification tools, and audit telemetry</li>
-        <!-- <li>Reverse identity resolution (cloud → on-prem) via Okta</li> -->
       </ul>
     </div>
   </div>
@@ -1141,10 +1142,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
       </ul>
     </div>
   </div>
-  <!-- <div class="glow-box" style="margin-top:14px">
-    <p style="font-size:14px;color:#e0e0e0">💡 <strong>Key insight:</strong> Without Log360's dark web intelligence (available via IWB add-on), the team would know <em>that</em> accounts were compromised but not <em>why</em> — and wouldn't know <strong class="accent">89 other employees potentially at risk with the same exposed credentials (automated enrichment — analyst validation recommended).</strong></p>
-  </div> -->
-</div>
+</div> -->
 
 
 <!-- UC3 — INTERACTIVE COPILOT CONVERSATION -->
@@ -1303,7 +1301,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
 </div>
 
 <!-- UC4 — HOW MCP SOLVES THIS + ENGINEERING & PRODUCT (MERGED) -->
-<div class="slide left-align" data-section="UC4: Cloud Compromise">
+<!-- <div class="slide left-align" data-section="UC4: Cloud Compromise">
   <h3>How Log360Cloud MCP Accelerates Investigation</h3>
   <div class="card-grid card-grid-3">
     <div class="card highlight">
@@ -1355,7 +1353,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
   <div class="glow-box" style="margin-top:14px">
     <p style="font-size:14px;color:#e0e0e0">💡 <strong>Key insight:</strong> A single dev workstation compromised the production cloud in under 2 hours. <strong class="accent">MCP traced endpoint → identity → cloud → data exfiltration across three completely different security domains.</strong></p>
   </div>
-</div>
+</div> -->
 
 
 <!-- UC4 — INTERACTIVE COPILOT CONVERSATION -->
@@ -1397,9 +1395,10 @@ td:first-child{color:#e0e0e0;font-weight:500}
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════
-     ░░░ USE CASE 5: QUARTERLY BOARD BRIEFING ░░░
+     ░░░ USE CASE 5: QUARTERLY BOARD BRIEFING (REMOVED) ░░░
      ═══════════════════════════════════════════════════════════════ -->
 
+<div style="display:none">
 <!-- UC5 — TITLE -->
 <div class="slide section-slide" data-section="UC5: Board Briefing">
   <span class="uc-badge uc5">USE CASE 5</span>
@@ -1652,15 +1651,16 @@ td:first-child{color:#e0e0e0;font-weight:500}
   </div>
   <p class="tiny center" style="margin-top:8px">Click any tool call to expand request/response details</p>
 </div>
+</div><!-- END OF UC5 BOARD BRIEFING (hidden) -->
 
 
 <!-- ═══════════════════════════════════════════════════════════════
-     ░░░ USE CASE 6: CROSS-CLOUD COMPLIANCE VIOLATION ░░░
+     ░░░ USE CASE 5: CROSS-CLOUD COMPLIANCE VIOLATION ░░░
      ═══════════════════════════════════════════════════════════════ -->
 
-<!-- UC6 — TITLE -->
-<div class="slide section-slide" data-section="UC6: Compliance Violation">
-  <span class="uc-badge uc6">USE CASE 6</span>
+<!-- UC5 — TITLE -->
+<div class="slide section-slide" data-section="UC5: Compliance Violation">
+  <span class="uc-badge uc5">USE CASE 5</span>
   <h1 class="center"><span class="white">Cross-Cloud Compliance Violation</span><br><span class="orange">Proactive Assessment & Remediation</span></h1>
   <p class="value-line">Cross-vendor orchestration · Compliance insights derived from ingested audit logs (CloudTrail, Azure Activity) and policy events</p>
   <div class="tags" style="margin-top:18px;justify-content:center">
@@ -1671,8 +1671,8 @@ td:first-child{color:#e0e0e0;font-weight:500}
   </div>
 </div>
 
-<!-- UC6 — VISUAL STORY DIAGRAM -->
-<div class="slide left-align" data-section="UC6: Compliance Violation">
+<!-- UC5 — VISUAL STORY DIAGRAM -->
+<div class="slide left-align" data-section="UC5: Compliance Violation">
   <h3>Compliance Violation Flow & MCP Investigation</h3>
   <div class="flow" style="margin-bottom:16px">
     <div class="flow-node attacker" style="background:#2a1520;border-color:#ff8a6555;color:#ff8a65">⚙️ S3 Bucket<br><span style="font-size:10px">Made public</span></div>
@@ -1709,8 +1709,8 @@ td:first-child{color:#e0e0e0;font-weight:500}
   </div>
 </div>
 
-<!-- UC6 — WITHOUT MCP -->
-<div class="slide left-align" data-section="UC6: Compliance Violation">
+<!-- UC5 — WITHOUT MCP -->
+<div class="slide left-align" data-section="UC5: Compliance Violation">
   <h3><span class="red">Without MCP:</span> Manual Compliance Audit</h3>
   <p class="tiny" style="margin-bottom:10px;color:#999">ⓘ Logs are centralized in Log360, but evidence compilation and cross-source correlation remain manual without MCP orchestration</p>
   <div class="vs-grid">
@@ -1746,8 +1746,8 @@ td:first-child{color:#e0e0e0;font-weight:500}
   </div>
 </div>
 
-<!-- UC6 — HOW MCP SOLVES THIS -->
-<div class="slide left-align" data-section="UC6: Compliance Violation">
+<!-- UC5 — HOW MCP SOLVES THIS -->
+<!-- <div class="slide left-align" data-section="UC5: Compliance Violation">
   <h3>How MCP Accelerates Compliance Investigation &amp; Evidence Correlation</h3>
   <div class="card-grid card-grid-3">
     <div class="card highlight">
@@ -1800,10 +1800,10 @@ td:first-child{color:#e0e0e0;font-weight:500}
     <p style="font-size:14px;color:#e0e0e0">💡 <strong>Key insight:</strong> The S3 bucket with 340K customer PII records was publicly accessible for <strong>5 days</strong>. Without MCP-driven proactive auditing of ingested logs, it would have remained open until the next quarterly review — <strong class="accent">or until a breach.</strong></p>
     <p style="font-size:11px;color:#888;margin-top:6px">ⓘ This is log-based compliance investigation — not ISO/SOC2 certification, GRC automation, or formal regulatory audit reporting.</p>
   </div>
-</div>
+</div> -->
 
-<!-- UC6 — INTERACTIVE COPILOT CONVERSATION -->
-<div class="slide left-align" data-section="UC6: Compliance Violation">
+<!-- UC5 — INTERACTIVE COPILOT CONVERSATION -->
+<div class="slide left-align" data-section="UC5: Compliance Violation">
   <h3>🤖 Copilot Conversation: Cross-Cloud Compliance Audit</h3>
   <div class="copilot-chat">
     <div class="chat-msg user"><div class="chat-bubble"><div class="chat-role">👤 Security Engineer</div>Run a cross-cloud compliance audit — check S3 exposure, Azure policy violations, IAM over-provisioning. Quarterly review is next week.</div></div>
@@ -1842,13 +1842,207 @@ td:first-child{color:#e0e0e0;font-weight:500}
 
 
 <!-- ═══════════════════════════════════════════════════════════════
+     ░░░ ZOHO MCP & ON-PREM DEPLOYMENT ░░░
+     ═══════════════════════════════════════════════════════════════ -->
+
+<!-- ZOHO MCP — SECTION TITLE -->
+<div class="slide section-slide" data-section="Zoho MCP & On-Prem">
+  <p class="small" style="letter-spacing:3px;text-transform:uppercase;margin-bottom:18px;color:#666">Expanding the MCP Ecosystem</p>
+  <h1 class="center"><span class="white">Zoho MCP &</span><br><span class="accent">On-Prem Log360 MCP Deployment</span></h1>
+  <p class="subtitle center" style="margin-top:14px">Connecting security workflows with business applications — cloud and on-prem</p>
+  <div class="tags" style="margin-top:24px;justify-content:center">
+    <span class="tag log360">LOG360 CLOUD</span>
+    <span class="tag" style="background:#e8a31718;color:#e8a317;border:1px solid #e8a31740">ZOHO MCP</span>
+    <span class="tag" style="background:#6c2dc718;color:#c084fc;border:1px solid #6c2dc740">ON-PREM DOCKER</span>
+  </div>
+</div>
+
+<!-- ZOHO MCP — WHAT IS IT -->
+<div class="slide left-align" data-section="Zoho MCP & On-Prem">
+  <h2>What Is <span class="yellow">Zoho MCP</span>?</h2>
+  <p class="desc" style="margin-bottom:16px">Zoho MCP is a product built around the Model Context Protocol — enabling AI agents to interact with <strong class="white">55+ Zoho &amp; ManageEngine apps</strong> and 500+ third-party integrations through a standardized interface. For security teams, this means tools like Endpoint Central and ServiceDesk Plus become AI-accessible out of the box.</p>
+  <div class="split">
+    <div class="col">
+      <h4>Key Capabilities</h4>
+      <ul class="bullets compact">
+        <li><strong>Agent-ready apps:</strong> AI agents can execute actions across Zoho &amp; ManageEngine products via natural language — from CRM to endpoint security</li>
+        <li><strong>Works with all LLMs:</strong> Compatible with Claude, GPT, and other AI agents out of the box</li>
+        <li><strong>500+ integrations:</strong> Connects Zoho apps with third-party services (Slack, GitHub, Stripe, Twilio, etc.)</li>
+        <!-- <li><strong>Autonomous agents:</strong> Supports fully autonomous workflows — monitor, reason, and act without human prompts</li> -->
+        <li><strong>API-native execution:</strong> Translates natural language intent into real API calls — e.g., patch scans, vulnerability reports, ticket creation</li>
+      </ul>
+      <!-- <div class="glow-box" style="margin-top:12px;padding:10px 12px">
+        <p style="font-size:10px;color:#aaa;margin:0"><strong class="yellow">Security-Relevant Highlights</strong></p>
+        <p style="font-size:10px;color:#bbb;margin:4px 0 0">
+          <span style="color:#6cb6ff">Endpoint Central</span> — 59 tools: Patch Mgmt, Vulnerability Scanning, Device Control, BitLocker, Misconfigurations, File Tracing<br>
+          <span style="color:#4ec9b0">ServiceDesk Plus</span> — 93 tools: Incident Requests, Change &amp; Problem Mgmt, Asset Tracking, Solutions KB, AI Suggestions
+        </p>
+      </div> -->
+      <p class="tiny" style="margin-top:8px;color:#888">Source: <a href="https://www.zoho.com/mcp/" style="color:#6cb6ff;text-decoration:none">zoho.com/mcp</a></p>
+    </div>
+    <div class="col">
+      <h4>How Zoho MCP Works</h4>
+      <div class="flow" style="flex-direction:column;gap:6px;align-items:stretch">
+        <div class="flow-node mcp" style="text-align:center">🤖 AI Agent (Claude / GPT / Custom)</div>
+        <div style="text-align:center;color:#666;font-size:9px;letter-spacing:1px;margin:2px 0">↓ NATURAL LANGUAGE PROMPT ↓</div>
+        <div class="flow-node" style="text-align:center;background:#1a1a10;border:1px solid #e8a31766;color:#e8a317;padding:10px">🔗 Zoho MCP Server<br><span style="font-size:10px">Context gathering → Tool selection → API execution</span></div>
+        <div style="text-align:center;color:#666;font-size:9px;letter-spacing:1px;margin:2px 0">↓ STANDARDIZED MCP PROTOCOL ↓</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px">
+          <div class="flow-node vendor" style="min-width:auto;padding:8px 10px">🖥️ Endpoint Central<br><span style="font-size:9px">Patch · Vuln · Device </span></div>
+          <div class="flow-node vendor" style="min-width:auto;padding:8px 10px">🎫 ServiceDesk Plus<br><span style="font-size:9px">ITSM · Assets · KB </span></div>
+          <div class="flow-node vendor" style="min-width:auto;padding:8px 10px">📊 Zoho CRM<br><span style="font-size:9px">Leads · Deals · Contacts</span></div>
+          <div class="flow-node vendor" style="min-width:auto;padding:8px 10px">🔐 Zoho Vault<br><span style="font-size:9px">Secrets · Passwords</span></div>
+          <div class="flow-node vendor" style="min-width:auto;padding:8px 10px">💬 Zoho Cliq<br><span style="font-size:9px">Alerts · Notifications</span></div>
+          <div class="flow-node vendor" style="min-width:auto;padding:8px 10px">⚙️ 500+ More<br><span style="font-size:9px">Third-party integrations</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ON-PREM MCP SERVER — DOCKER DEPLOYMENT -->
+<div class="slide left-align" data-section="Zoho MCP & On-Prem">
+  <h2><span class="purple">On-Prem MCP Server:</span> Docker Deployment</h2>
+  <p class="desc" style="margin-bottom:16px">For organizations running Log360 on-premises, we are planning to deliver the MCP server as a containerized Docker deployment — bringing the same AI orchestration capabilities to air-gapped and on-prem environments.</p>
+  <div class="split">
+    <div class="col-wide">
+      <h4>Architecture: On-Prem Docker MCP Server</h4>
+      <!-- Docker Architecture Diagram — Vertical Layout -->
+      <div style="width:100%;background:#0e0e1a;border:1px solid #252535;border-radius:12px;padding:20px 16px;margin:8px 0">
+        <!-- Customer Network Boundary -->
+        <div style="border:1px dashed #555;border-radius:10px;padding:16px 14px 14px;position:relative">
+          <span style="position:absolute;top:-10px;left:16px;background:#0e0e1a;padding:0 8px;font-size:10px;color:#888;letter-spacing:1px;text-transform:uppercase">Customer On-Prem Network</span>
+
+          <!-- Row 1: AI Client -->
+          <div style="text-align:center;margin-top:6px">
+            <div class="flow-node mcp" style="display:inline-block;min-width:220px;padding:10px 20px;font-size:13px">🤖 AI Client<br><span style="font-size:10px;opacity:.8">Copilot · Claude Desktop · Custom</span></div>
+          </div>
+
+          <!-- Arrow down: STDIO / SSE -->
+          <div style="text-align:center;padding:4px 0">
+            <div style="display:inline-block;color:#c084fc;font-size:18px;line-height:1">↕</div>
+            <div style="font-size:10px;color:#999;letter-spacing:.3px;padding-bottom: .3px;">STDIO / SSE</div>
+          </div>
+
+          <!-- Row 2: Docker Container with MCP Server -->
+          <div style="text-align:center">
+            <div style="display:inline-block;background:#151530;border:2px solid #c084fc55;border-radius:10px;padding:12px 24px 10px;position:relative;min-width:280px">
+              <span style="position:absolute;top:-10px;left:14px;background:#151530;padding:0 8px;font-size:10px;color:#c084fc;letter-spacing:.8px;font-weight:600">🐳 DOCKER CONTAINER</span>
+              <div class="flow-node log360" style="display:inline-block;min-width:200px;padding:10px 18px;font-size:12px;margin-top:4px">Log360 MCP Server<br><span style="font-size:10px;opacity:.85">Alerts · NLQ · UEBA · Threat Intel</span></div>
+              <div style="margin-top:6px;font-size:10px;color:#c084fc;letter-spacing:.3px">🔑 <code style="color:#c084fc;font-size:10px">LOG360_API_KEY</code> configured in env</div>
+            </div>
+          </div>
+
+          <!-- Arrow down: REST API + API Key Auth -->
+          <div style="text-align:center;padding:4px 0">
+            <div style="display:inline-block;color:#6cb6ff;font-size:18px;line-height:1">↕</div>
+            <div style="font-size:10px;color:#999;letter-spacing:.3px">REST API + API Key Auth</div>
+          </div>
+
+          <!-- Row 3: Log360 On-Prem Instance — OUTSIDE Docker -->
+          <div style="text-align:center">
+            <div class="flow-node system" style="display:inline-block;min-width:260px;padding:10px 20px;font-size:13px">🏢 Log360 On-Prem Instance<br><span style="font-size:10px;opacity:.8">Generates API Keys · Exposes REST APIs</span></div>
+          </div>
+
+          <!-- Other on-prem MCP servers -->
+          <!-- <div style="margin-top:14px;text-align:center;border-top:1px dashed #333;padding-top:10px">
+            <div style="font-size:9px;color:#777;letter-spacing:1px;margin-bottom:6px;text-transform:uppercase">Additional On-Prem MCP Servers (Optional)</div>
+            <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+              <div class="flow-node vendor" style="min-width:auto;padding:6px 12px;font-size:10px">🐳 CrowdStrike MCP<br><span style="font-size:8px">Docker</span></div>
+              <div class="flow-node vendor" style="min-width:auto;padding:6px 12px;font-size:10px">🐳 Okta MCP<br><span style="font-size:8px">Docker</span></div>
+              <div style="min-width:auto;padding:6px 12px;font-size:10px;background:#1a1a10;border:1px solid #e8a31744;color:#e8a317;border-radius:6px">🐳 Zoho MCP<br><span style="font-size:8px">Docker (future)</span></div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-narrow">
+      <h4>Why Docker?</h4>
+      <ul class="bullets compact">
+        <li><strong>Isolated & portable:</strong> No host dependencies — runs on any Docker-compatible infrastructure</li>
+        <li><strong>Air-gap compatible:</strong> Works in restricted networks with no internet access</li>
+        <li><strong>Easy upgrades:</strong> Pull new image, restart container — no manual patching</li>
+        <li><strong>Multi-server orchestration:</strong> Run Log360 + other vendor MCP servers side-by-side</li>
+      </ul>
+      <h4 style="margin-top:14px">Deployment Model</h4>
+      <ul class="bullets compact">
+        <li><code style="color:#c084fc">docker pull</code> Log360 MCP server image</li>
+        <li>Generate an API key from Log360 On-Prem console</li>
+        <li>Set <code style="color:#c084fc">LOG360_API_KEY</code> in the Docker container environment</li>
+        <li>MCP server calls Log360 REST APIs using the API key</li>
+        <li>AI client connects to the container via STDIO or SSE</li>
+        <li>Same MCP tools as cloud — identical capabilities</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ON-PREM vs CLOUD COMPARISON -->
+<div class="slide left-align" data-section="Zoho MCP & On-Prem">
+  <h3>Cloud vs. On-Prem MCP: <span class="accent">Same Capabilities, Flexible Deployment</span></h3>
+  <p class="desc" style="margin-bottom:14px">Whether customers run Log360 in the cloud or on-premises, the MCP experience is consistent — same tools, same protocol, same AI orchestration.</p>
+  <div class="vs-grid">
+    <div class="vs-col" style="background:#0e1525;border:1px solid #6cb6ff33;border-radius:10px 0 0 10px">
+      <h4 class="blue">☁️ Cloud MCP (Log360 Cloud)</h4>
+      <ul>
+        <li>Hosted MCP server managed by Zoho</li>
+        <li>Automatic updates and scaling</li>
+        <li>Direct API connectivity to Log360 Cloud</li>
+        <li>SSE transport over HTTPS</li>
+        <li>Ideal for cloud-first organizations</li>
+        <li>Zero infrastructure management</li>
+        <!-- <li><strong style="color:#6cb6ff">Available today</strong></li> -->
+      </ul>
+    </div>
+    <div class="vs-col" style="background:#151530;border:1px solid #c084fc33;border-radius:0 10px 10px 0">
+      <h4 class="purple">🐳 On-Prem MCP (Docker)</h4>
+      <ul>
+        <li>Self-hosted Docker container on customer infrastructure</li>
+        <li>Customer-controlled update cadence</li>
+        <li>Connects to on-prem Log360 via internal network</li>
+        <li>STDIO or SSE transport (local)</li>
+        <li>Ideal for regulated, air-gapped, or hybrid environments</li>
+        <!-- <li>Full data sovereignty — nothing leaves the network</li> -->
+        <!-- <li><strong style="color:#c084fc">Planned — in development</strong></li> -->
+      </ul>
+    </div>
+  </div>
+  <div class="card-grid card-grid-4" style="margin-top:16px">
+    <div class="card green-border" style="text-align:center">
+      <div class="icon">🔧</div>
+      <h4>Same MCP Tools</h4>
+      <p>Alerts, NLQ, UEBA, Threat Intel, Detections — identical API surface</p>
+    </div>
+    <div class="card green-border" style="text-align:center">
+      <div class="icon">🤖</div>
+      <h4>Same AI Clients</h4>
+      <p>Copilot, Claude Desktop, custom agents — any MCP-compatible client</p>
+    </div>
+    <div class="card green-border" style="text-align:center">
+      <div class="icon">🔄</div>
+      <h4>Same Protocol</h4>
+      <p>MCP standard ensures interoperability across cloud and on-prem</p>
+    </div>
+    <div class="card green-border" style="text-align:center">
+      <div class="icon">🔗</div>
+      <h4>Same Orchestration</h4>
+      <p>Cross-vendor correlation works identically in both deployment models</p>
+    </div>
+  </div>
+  <!-- <div class="glow-box" style="margin-top:14px">
+    <p style="font-size:14px;color:#e0e0e0">💡 <strong>Key insight:</strong> The Docker-based on-prem MCP server ensures that <strong class="accent">customers in regulated industries (healthcare, finance, government) can adopt MCP-powered AI orchestration</strong> without compromising data sovereignty or network isolation requirements.</p>
+  </div> -->
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
      ░░░ FINAL SLIDES (MERGED) ░░░
      ═══════════════════════════════════════════════════════════════ -->
 
 <!-- FINAL A — STRATEGIC SUMMARY + ECOSYSTEM + BUSINESS IMPACT -->
-<div class="slide left-align" data-section="Strategic Summary">
+<!-- <div class="slide left-align" data-section="Strategic Summary">
   <h2 class="center" style="margin-bottom:16px"><span class="accent">Strategic Summary</span> & Ecosystem Position</h2>
-  <p class="desc center" style="margin-bottom:16px;max-width:900px">MCP is not a feature — it's an <strong class="white">orchestration and correlation layer</strong> that positions Log360Cloud as the primary investigation hub alongside the modern SOC's existing tools. MCP does not replace SIEM, EDR, CSPM, or GRC — it connects them.</p>
+  <p class="desc center" style="margin-bottom:16px;max-width:900px">MCP is not a feature — it's an <strong class="white">orchestration and correlation layer</strong> that positions Log360Cloud as the primary investigation hub alongside the modern SOC's existing tools. With Zoho MCP bridging business apps and Docker-based on-prem deployment planned, the ecosystem is expanding across cloud and on-prem.</p>
   <div class="split" style="max-width:1120px">
     <div class="col">
       <div class="card-grid" style="gap:10px">
@@ -1856,7 +2050,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
           <h4 style="font-size:14px">🔗 From Tool to Platform</h4>
           <ul style="font-size:12px">
             <li>Log360 = primary investigation hub in every use case</li>
-            <li>6 proven scenarios across diverse threat vectors</li>
+            <li>5 proven scenarios across diverse threat vectors</li>
             <li>Detection gaps found in every investigation — continuous improvement loop</li>
           </ul>
         </div>
@@ -1888,10 +2082,12 @@ td:first-child{color:#e0e0e0;font-weight:500}
         <tr><td style="padding:5px 8px">Cross-Source UEBA</td><td style="padding:5px 8px" class="green"><strong>Risk scoring from all ingested sources</strong></td></tr>
         <tr><td style="padding:5px 8px">Infrastructure Health</td><td style="padding:5px 8px" class="green"><strong>Log source/agent health via MCP</strong></td></tr>
         <tr><td style="padding:5px 8px">Dark Web Intel</td><td style="padding:5px 8px">Org-wide credential exposure via IWB</td></tr>
+        <tr><td style="padding:5px 8px">Zoho MCP Synergy</td><td style="padding:5px 8px" class="yellow"><strong>Security → Business workflows in one agent</strong></td></tr>
+        <tr><td style="padding:5px 8px">On-Prem (Docker)</td><td style="padding:5px 8px" class="purple"><strong>Air-gapped & regulated environments</strong></td></tr>
       </table>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- FINAL B — CLOSING (Force Multiplier) -->
 <div class="slide section-slide" data-section="Closing">
@@ -2133,7 +2329,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
 <script>
 function toggleTool(el){el.classList.toggle('expanded');}
 
-const slides = [...document.querySelectorAll('.slide')];
+const slides = [...document.querySelectorAll('#deck > .slide')];
 const total = slides.length;
 let cur = 0;
 
