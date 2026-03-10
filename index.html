@@ -90,6 +90,7 @@ p,.desc{font-size:clamp(13px,1.4vw,17px);line-height:1.7;color:#bbb;max-width:96
 .tag.m365{background:#1976d218;color:#64b5f6;border:1px solid #1976d240}
 .tag.sn{background:#62c35318;color:#81c784;border:1px solid #62c35340}
 .tag.aws{background:#ff990018;color:#ffb74d;border:1px solid #ff990040}
+.tag.zoho{background:#d9232218;color:#e06060;border:1px solid #d9232240}
 
 /* ══════════════════════════════════════════════
    CARDS & GRIDS
@@ -305,6 +306,7 @@ td:first-child{color:#e0e0e0;font-weight:500}
 .tool-badge.github{background:#f0f0f012;color:#e0e0e0}
 .tool-badge.vt{background:#39469922;color:#6c7eb7}
 .tool-badge.qualys{background:#ed162422;color:#ed6874}
+.tool-badge.zoho{background:#d9232222;color:#e06060}
 
 /* Tool Classification Badges */
 .tool-type{
@@ -558,9 +560,9 @@ td:first-child{color:#e0e0e0;font-weight:500}
      SLIDE 4 — AGENDA
      ═══════════════════════════════════════════════════════════════ -->
 <div class="slide" data-section="Introduction">
-  <h2 class="center">5 Real-World Use Cases</h2>
+  <h2 class="center">6 Real-World Use Cases</h2>
   <p class="desc center" style="margin-bottom:8px">Each demonstrated with actual MCP tool calls, measurable outcomes, and cross-vendor orchestration</p>
-  <div class="card-grid" style="max-width:1060px">
+  <div class="card-grid card-grid-3" style="max-width:1060px">
     <div class="card red-border" style="cursor:pointer">
       <h4><span class="red">UC 1</span> — Ransomware Kill Chain</h4>
       <p>Phishing → PowerShell → Lateral Movement → C2 → Accelerated investigation in minutes</p>
@@ -581,10 +583,15 @@ td:first-child{color:#e0e0e0;font-weight:500}
       <p>Trojanized Python package → AWS credential theft → data exfiltration traced</p>
       <p class="tiny" style="margin-top:6px">Cross-vendor orchestration · 3 vendors</p>
     </div>
-    <div class="card" style="border-color:#ff8a6544">
-      <h4><span class="orange">UC 5</span> — Password Spray → Privilege Escalation</h4>
+    <div class="card" style="border-color:#4ec9b044">
+      <h4><span class="accent">UC 5</span> — Password Spray → Privilege Escalation</h4>
       <p>Kerberos spray on DC01 → finance1 compromised → RDP lateral movement → Domain Admin escalation via runas</p>
       <p class="tiny" style="margin-top:6px">Cross-vendor orchestration · 2 vendors</p>
+    </div>
+    <div class="card" style="border-color:#ff8a6544">
+      <h4><span class="orange">UC 6</span> — User 360° Profile</h4>
+      <p>Impossible travel + MFA fatigue + EDR offline. Full identity-endpoint-auth-ticket correlation in one conversation.</p>
+      <p class="tiny" style="margin-top:6px">Cross-vendor orchestration · 4 vendors</p>
     </div>
   </div>
   <p class="small center" style="margin-top:14px;color:#777"><strong>Note:</strong> CrowdStrike falcon-mcp, Okta okta-mcp-server, and SentinelOne purple-mcp are <strong>read-only</strong> MCP servers. All tool calls in these use cases are read-only investigation operations.</p>
@@ -1143,6 +1150,117 @@ td:first-child{color:#e0e0e0;font-weight:500}
 <div class="lightbox-backdrop" id="lightboxModal" onclick="closeLightbox(event)">
   <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
   <img id="lightboxImg" src="" alt="Expanded screenshot">
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ░░░ USE CASE 6: USER 360° PROFILE — ACCOUNT TAKEOVER TRIAGE ░░░
+     ═══════════════════════════════════════════════════════════════ -->
+
+<!-- UC6 — TITLE -->
+<div class="slide section-slide" data-section="UC6: User 360° Profile">
+  <span class="uc-badge uc6">USE CASE 6</span>
+  <h1 class="center"><span class="white">User 360° Profile</span><br><span class="orange">Account Takeover Triage in One Conversation</span></h1>
+  <p class="value-line">Cross-vendor orchestration · Identity + Endpoint + Auth + Ticketing fused into a single analyst view</p>
+  <div class="tags" style="margin-top:18px;justify-content:center">
+    <span class="tag log360">LOG360</span>
+    <span class="tag falcon">CROWDSTRIKE</span>
+    <span class="tag okta">OKTA</span>
+    <span class="tag zoho">ZOHO DIRECTORY</span>
+    <span class="tag sn">SERVICENOW</span>
+  </div>
+</div>
+
+<!-- UC6 — VISUAL STORY DIAGRAM -->
+<div class="slide left-align" data-section="UC6: User 360° Profile">
+  <h3>Attack Flow &amp; MCP Investigation</h3>
+  <div class="flow" style="margin-bottom:16px">
+    <div class="flow-node system"> jsmith_admin<br><span style="font-size:10px">Domain Admin · DevOps</span></div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-node attacker"> Password Reset<br><span style="font-size:10px">22 Feb — walk-in</span></div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-node attacker"> After-Hours Login<br><span style="font-size:10px">04 Mar 03:12 IST</span></div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-node attacker"> EDR Goes Offline<br><span style="font-size:10px">05 Mar 23:01</span></div>
+  </div>
+  <div class="flow-connector">↓ <span class="conn-label">Impossible travel &amp; MFA fatigue — potential account takeover</span> ↓</div>
+  <div class="flow" style="margin-bottom:16px">
+    <div class="flow-node attacker"> 14 MFA Failures<br><span style="font-size:10px">Frankfurt · 5 min burst</span></div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-node attacker"> MFA Bypass Login<br><span style="font-size:10px">09:14 IST · Frankfurt</span></div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-node attacker" style="background:#2a1520;border-color:#e06c75;color:#e06c75"> Impossible Travel<br><span style="font-size:10px">Coimbatore → Frankfurt 27 min</span></div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-node attacker"> Mimikatz Pattern<br><span style="font-size:10px">WKSN-4471</span></div>
+  </div>
+  <div class="flow-connector">↓ <span class="conn-label">SOC analyst requests User 360° Profile via MCP</span> ↓</div>
+  <div class="flow">
+    <div class="flow-node log360"> Log360 Cloud<br><span style="font-size:10px">Alerts · VPN · UEBA</span></div>
+    <span class="flow-arrow">↔</span>
+    <div class="flow-node mcp"> MCP Copilot<br><span style="font-size:10px">Cross-vendor orchestration</span></div>
+    <span class="flow-arrow">↔</span>
+    <div class="flow-node vendor"> Okta · Zoho Dir · CrowdStrike · SNOW<br><span style="font-size:10px">Identity + Directory + EDR + Tickets</span></div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-node result"> 360° User Profile<br><span style="font-size:10px">Correlated in minutes</span></div>
+  </div>
+  <h3>What Happened?</h3>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot yellow"></div><div class="tl-content"><strong>22 Feb:</strong> jsmith_admin password reset via in-person help desk walk-in (INC0043210 — Closed)<div class="tl-time">Earliest notable event — all anomalous activity begins after this date</div></div></div>
+    <div class="tl-item"><div class="tl-dot yellow"></div><div class="tl-content"><strong>28 Feb:</strong> Elevated access granted to production Kubernetes cluster (REQ0078234 — Approved)<div class="tl-time">Privilege escalation via legitimate request channel</div></div></div>
+    <div class="tl-item"><div class="tl-dot yellow"></div><div class="tl-content"><strong>04 Mar 03:12 IST:</strong> After-hours login from Coimbatore — outside normal business hours pattern<div class="tl-time">Medium severity alert · First behavioral deviation</div></div></div>
+    <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>05 Mar 23:01:</strong> CrowdStrike EDR agent on WKSN-4471 goes offline — sensor version 7.14.16804 (one version behind)<div class="tl-time">Unusual PowerShell execution detected on endpoint · Mimikatz pattern</div></div></div>
+    <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>06 Mar 08:47 IST:</strong> Last Coimbatore login — normal VPN session active<div class="tl-time">Legitimate session from expected location</div></div></div>
+    <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>06 Mar 09:08 IST:</strong> 14 MFA challenges fail rapidly from Frankfurt IP in 5-minute burst<div class="tl-time">MFA fatigue / brute-force pattern · Okta Threat Insight flagged</div></div></div>
+    <div class="tl-item"><div class="tl-dot red"></div><div class="tl-content"><strong>06 Mar 09:14 IST:</strong> Successful login from Frankfurt — <strong>27 minutes after last Coimbatore login. Impossible travel confirmed.</strong><div class="tl-time">Concurrent VPN sessions from Coimbatore AND Frankfurt · 3 active SSO sessions (AWS, Azure, GitHub)</div></div></div>
+    <div class="tl-item"><div class="tl-dot blue"></div><div class="tl-content"><strong>Current state:</strong> 2 active VPN sessions (dual continent), EDR offline, 1 open Mimikatz detection, 3 of 4 alerts open. <strong>🔴 Risk Level: HIGH</strong></div></div>
+  </div>
+</div>
+
+<!-- UC6 — INTERACTIVE COPILOT CONVERSATION -->
+<div class="slide left-align" data-section="UC6: User 360° Profile">
+  <h3> Copilot Conversation: User 360° Profile Investigation (Mock)</h3>
+  <div class="copilot-chat">
+    <div class="chat-msg user"><div class="chat-bubble"><div class="chat-role"> SOC Analyst</div>Build a full 360° profile for jsmith_admin. We have an impossible travel alert — Coimbatore to Frankfurt in 27 minutes, and the EDR agent on his device is offline. You can use the available mcp tools like okta, crowdstrike, log360, zoho directory.</div></div>
+    <div class="chat-msg copilot"><div class="chat-bubble">
+      <div class="chat-role">Copilot</div>
+      <p>I'll start by pulling all recent SIEM alerts for jsmith_admin — the analyst mentioned an impossible travel alert, so I need the full alert picture first.</p>
+      <div class="tool-calls-phase">
+        <div class="phase-label">Phase 1 — Alert Triage &amp; Identity Resolution</div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> get_alerts(query: 'USERNAME="jsmith_admin"', time: -48h, severity: "critical,trouble,attention") <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Analyst reported an impossible travel alert — pulling all SIEM alerts for this user first to understand the full scope before investigating</div><div class="tool-res">✓ 4 alerts: 🔴 CRITICAL "Impossible travel — Coimbatore → Frankfurt" (06 Mar) · 🟠 HIGH "14 failed MFA challenges in 5 min" (06 Mar) · 🟠 HIGH "Unusual PowerShell execution on WKSN-4471" (05 Mar) · 🟡 MEDIUM "Login outside business hours" (04 Mar) — <strong>3 of 4 currently open</strong></div></div></div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge okta">Okta</span> get_user(userId: "jsmith_admin") <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Now resolving who jsmith_admin is — need identity, MFA enrollment, SSO apps, and registered devices</div><div class="tool-res">✓ Status: ACTIVE · MFA: Microsoft Authenticator (primary) + YubiKey 5 (backup) · Last password change: 22 Feb 2026 · SSO Apps (7): AWS Console, Azure Portal, GitHub Enterprise, Jira, ServiceNow, Slack, Salesforce · Device WKSN-4471: Registered as Managed &amp; Trusted in Okta Device Trust</div></div></div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge zoho">Zoho Directory</span> get_user(userId: "jsmith_admin") <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Enriching identity with org context — employee role, reporting chain, and AD group memberships from Zoho Directory</div><div class="tool-res">✓ John Smith · Senior DevOps Engineer · Cloud Infrastructure · emp#10234 · Coimbatore office · Reports to: Priya Raghavan · With org since: Mar 2021 · AD Groups: Domain Admins, Azure-Prod-Contributors, VPN-FullTunnel, K8s-Prod-Cluster-Admins (added 28 Feb)</div></div></div>
+      </div>
+      <p style="color:#bbb;margin:6px 0;font-size:12px"><strong style="color:#e8a317">4 open alerts + high-privilege account:</strong> Impossible travel (Critical), MFA brute-force, and PowerShell execution on WKSN-4471. User holds Domain Admin + Azure-Prod-Contributors + K8s-Prod-Cluster-Admins (recently granted 28 Feb). Alerts flagged PowerShell activity on WKSN-4471 and the analyst confirms EDR is offline — investigating the endpoint next.</p>
+      <div class="tool-calls-phase">
+        <div class="phase-label">Phase 2 — Endpoint Investigation</div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge crowdstrike">CrowdStrike</span> falcon_search_hosts(filter: "hostname:'WKSN-4471'") <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ WKSN-4471 identified from Okta device trust (Phase 1). Alerts flagged "Unusual PowerShell execution" on this host and analyst says EDR is offline — verifying device and sensor status via CrowdStrike</div><div class="tool-res">✓ WKSN-4471 · Windows 11 Pro · OS Patch: Feb 2026 cumulative (current) · Sensor: 7.14.16804 (one version behind) · <strong style="color:#e06c75">Status: OFFLINE since 05 Mar 23:01</strong> · Device trust: Managed (Okta)</div></div></div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge crowdstrike">CrowdStrike</span> falcon_search_detections(filter: "device.hostname:'WKSN-4471'", sort: "last_behavior|desc", limit: 10) <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Sensor confirmed offline since 05 Mar 23:01 — checking for detections that fired before the sensor went dark</div><div class="tool-res">✓ 1 open detection: <strong style="color:#e06c75">"PowerShell Mimikatz Pattern"</strong> — Severity: High · Tactic: Credential Access (T1003) · Detected: 05 Mar · Status: new (unresolved)</div></div></div>
+      </div>
+      <p style="color:#bbb;margin:6px 0;font-size:12px"><strong style="color:#e06c75">Critical endpoint concern:</strong> EDR went offline 05 Mar 23:01 — just hours after a Mimikatz credential-dumping detection (T1003). The device still shows "Managed &amp; Trusted" in Okta, meaning sessions from this device remain trusted. Credentials may already be compromised — verifying the impossible travel claim through authentication logs next.</p>
+      <div class="tool-calls-phase">
+        <div class="phase-label">Phase 3 — Authentication Timeline (Last 48 Hours)</div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> generate_query(nlq: "all successful and failed logon events for jsmith_admin in the last 48 hours") <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Impossible travel alert flagged in Phase 1, Mimikatz suggests credential theft in Phase 2 — mapping the authentication timeline to verify whether logins occurred from both Coimbatore and Frankfurt</div><div class="tool-res">✓ Generated query: EVENTID IN (4624, 4625) AND USERNAME = "jsmith_admin"</div></div></div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> execute_query(query: 'EVENTID IN (4624, 4625) AND USERNAME = "jsmith_admin"', log_type: "Windows", time: -48h) <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Execute generated query against Windows logs, last 48 hours</div><div class="tool-res">✓ Regular logins from Coimbatore during business hours (04–06 Mar) · After-hours login: 04 Mar 03:12 IST from Coimbatore · Last Coimbatore login: 06 Mar 08:47 IST</div></div></div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge okta">Okta</span> get_logs(filter: "actor.alternateId eq \"jsmith_admin\"", since: "2026-03-04T00:00:00Z") <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Windows logs show last Coimbatore login at 08:47 IST — cross-referencing Okta SSO/MFA logs to find the Frankfurt login and verify MFA failure pattern from the alert</div><div class="tool-res">✓ 06 Mar 09:08 IST: <strong style="color:#e06c75">14 MFA challenges FAILED in 5 minutes</strong> from Frankfurt IP · 06 Mar 09:14 IST: Successful login from Frankfurt · Okta Threat Insight: SUSPICIOUS · 3 active SSO sessions: AWS, Azure, GitHub</div></div></div>
+      </div>
+      <p style="color:#bbb;margin:6px 0;font-size:12px"><strong style="color:#e06c75">Impossible travel confirmed:</strong> Frankfurt login at 09:14 IST — only 27 minutes after last Coimbatore login at 08:47 IST. 14 rapid MFA failures preceded the successful login, suggesting MFA fatigue or token bypass. Need to verify whether both locations had active network access, and audit the recent K8s privilege grant flagged in Phase 1.</p>
+      <div class="tool-calls-phase">
+        <div class="phase-label">Phase 4 — Network &amp; Privilege Audit</div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> generate_query(nlq: "active and recent VPN sessions for jsmith_admin in the last 48 hours") <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Logins confirmed from both Coimbatore and Frankfurt — checking VPN to determine if both locations had concurrent active network sessions</div><div class="tool-res">✓ Generated query: EVENTID IN (6272, 6273) AND USERNAME = "jsmith_admin"</div></div></div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> execute_query(query: 'EVENTID IN (6272, 6273) AND USERNAME = "jsmith_admin"', time: -48h) <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Execute generated query against VPN logs, last 48 hours</div><div class="tool-res">✓ 2 concurrent active VPN sessions: Session 1 — Coimbatore (business hours, expected) · <strong style="color:#e06c75">Session 2 — Frankfurt, Germany (unexpected, post-MFA bypass)</strong></div></div></div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> generate_query(nlq: "AD group membership changes for jsmith_admin in the last 30 days") <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Zoho Directory (Phase 1) showed K8s-Prod-Cluster-Admins was added 28 Feb — auditing when and how this sensitive privilege was granted, since all anomalous activity follows that date</div><div class="tool-res">✓ Generated query: EVENTID IN (4728, 4732, 4756) AND USERNAME = "jsmith_admin"</div></div></div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge log360">Log360</span> execute_query(query: 'EVENTID IN (4728, 4732, 4756) AND USERNAME = "jsmith_admin"', log_type: "Windows", time: -30d) <span class="tool-type official">Official</span><div class="tool-detail"><div class="tool-req">→ Execute generated query against Windows logs, last 30 days</div><div class="tool-res">✓ 28 Feb: Added to K8s-Prod-Cluster-Admins (elevated access grant) — correlates with service request REQ0078234</div></div></div>
+      </div>
+      <p style="color:#bbb;margin:6px 0;font-size:12px"><strong style="color:#e06c75">Dual-location access confirmed + recent privilege escalation:</strong> Concurrent VPN sessions active from Coimbatore and Frankfurt. K8s-Prod-Cluster-Admins was granted 28 Feb via REQ0078234 — this elevated access to production Kubernetes may be the attacker's objective. Pulling ServiceNow tickets to map the full event timeline.</p>
+      <div class="tool-calls-phase">
+        <div class="phase-label">Phase 5 — ServiceNow Ticket Correlation</div>
+        <div class="tool-call" onclick="toggleTool(this)"><span class="tool-badge sn">ServiceNow</span> search_incidents(query: "caller=jsmith_admin", sysparm_limit: 10) <span class="tool-type custom">Custom</span><div class="tool-detail"><div class="tool-req">→ K8s group change (Phase 4) correlates with REQ0078234 — pulling all tickets for jsmith_admin to build the complete event timeline and check for earlier suspicious activity</div><div class="tool-res">✓ 3 tickets: INC0043891 "Cannot access Azure portal" (Open) · REQ0078234 "Elevated K8s prod access request" (Approved, 28 Feb) · INC0043210 "Password reset — in-person walk-in" (Closed, 22 Feb)</div></div></div>
+      </div>
+      <p style="color:#bbb;margin:6px 0;font-size:12px"><strong style="color:#e8a317">Timeline reconstructed:</strong> Password reset via help-desk walk-in (22 Feb) → K8s privilege request approved (28 Feb) → after-hours login (04 Mar) → PowerShell Mimikatz + EDR offline (05 Mar) → impossible travel + MFA brute-force + Frankfurt login (06 Mar). The open Azure portal ticket (INC0043891) may indicate session conflicts between the legitimate user and an unauthorized party.</p>
+
+      <div class="chat-summary"><strong>📋 User 360° Profile — jsmith_admin | 🔴 Risk Level: HIGH</strong><br><br><strong>Identity (Zoho Directory):</strong> John Smith · Senior DevOps Engineer · Cloud Infrastructure · emp#10234 · Active since Mar 2021 · Coimbatore · Reports to: Priya Raghavan. AD Groups: Domain Admins, Azure-Prod-Contributors, VPN-FullTunnel, K8s-Prod-Cluster-Admins (granted 28 Feb).<br><strong>Okta SSO &amp; MFA:</strong> Status ACTIVE · MFA enrolled: Microsoft Authenticator (primary) + YubiKey 5 (backup). Last password change: 22 Feb 2026 (in-person help desk visit). SSO access to 7 apps: AWS, Azure, GitHub, Jira, ServiceNow, Slack, Salesforce. Device WKSN-4471 registered as Managed &amp; Trusted.<br><strong>Endpoint (CrowdStrike):</strong> WKSN-4471 — Windows 11 Pro · OS patched (Feb 2026) · <strong style="color:#e06c75">EDR: OFFLINE since 05 Mar 23:01</strong> · Sensor one version behind · 1 open detection: PowerShell Mimikatz pattern (T1003).<br><strong>Authentication (48h):</strong> After-hours login 04 Mar 03:12 IST. 14 MFA failures in 5 min from Frankfurt (09:08 IST). Successful Frankfurt login at 09:14 IST — 27 min after last Coimbatore login. <strong style="color:#e06c75">Impossible travel confirmed.</strong> 2 concurrent VPN sessions (Coimbatore + Frankfurt). 3 active SSO sessions (AWS, Azure, GitHub).<br><strong>Alerts (4):</strong> 🔴 Impossible travel (Critical) · 🟠 14 failed MFA (High) · 🟠 Unusual PowerShell (High) · 🟡 After-hours login (Medium) — 3 of 4 open.<br><strong>Tickets (ServiceNow):</strong> INC0043891 "Azure portal access" (Open) · REQ0078234 "K8s prod access" (Approved) · INC0043210 "Password reset" (Closed, 22 Feb).<br><strong>Cross-Tool Correlations:</strong> Password reset (22 Feb) preceded all anomalous activity. EDR offline + Mimikatz detection while device still shows "Managed" in Okta trust. Open Azure ticket may indicate session conflict between legitimate user and attacker. MFA fatigue pattern followed by successful login warrants bypass investigation.<br><br></div>
+    </div></div>
+  </div>
+  <p class="tiny center" style="margin-top:8px">Click any tool call to expand request/response details</p>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════
